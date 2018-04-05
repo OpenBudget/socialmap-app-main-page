@@ -15,8 +15,11 @@ env:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
+    - K8S_OPS_REPO_BRANCH=master
+    - K8S_OPS_REPO_SLUG=OpenBudget/budgetkey-k8s
 before_script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
+  - if [ "${DEPLOY_ENVIRONMENT}" != "" ]; then sudo npm install -g yaml-cli; fi
 install:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm install; fi
 script:
@@ -25,7 +28,7 @@ script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run e2e; fi
   - |
     if [ "${DEPLOY_ENVIRONMENT}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
-       [ "${DOCKER_USERNAME}" != "" ] && [ "${DOCKER_PASSWORD}" != "" ] &&\
+       [ "${DOCKER_USERNAME}" != "" ] && [ "${DOCKER_PASSWORD}" != "" ] && [ "${GITHUB_TOKEN}" != "" ] &&\
        [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy; then
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&\
         ( docker pull "${DOCKER_IMAGE}:${DEPLOY_BRANCH}"; true ) &&\
@@ -34,5 +37,15 @@ script:
                      -t "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" \
                      . &&\
         docker push "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
-        docker push "${DOCKER_IMAGE}:${DEPLOY_BRANCH}"
+        docker push "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" &&\
+        git config user.email "deployment-bot@${DEPLOY_ENVIRONMENT}" &&\
+        git config user.name "${DEPLOY_ENVIRONMENT}-deployment-bot" &&\
+        K8S_OPS_DIR=`mktemp -d` &&\
+        git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" "${K8S_OPS_DIR}" &&\
+        yaml set "${K8S_OPS_DIR}/environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" \
+                 socialmap.mainpageImage "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
+        cd $K8S_OPS_DIR &&\
+        git add "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
+        git commit -m "automatic update of socialmap main page image" &&\
+        git push https://${GIT_REPO_TOKEN}'@'github.com/${K8S_OPS_REPO_SLUG}.git "${K8S_OPS_REPO_BRANCH}"
     fi
