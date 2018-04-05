@@ -19,9 +19,9 @@ env:
     - K8S_OPS_REPO_SLUG=OpenBudget/budgetkey-k8s
 before_script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
-  - if [ "${DEPLOY_ENVIRONMENT}" != "" ]; then sudo npm install -g yaml-cli; fi
 install:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm install; fi
+  - if [ "${DEPLOY_ENVIRONMENT}" != "" ]; then npm install -g yaml-cli; fi
 script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run lint; fi
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run test; fi
