@@ -45,12 +45,9 @@ script:
         git config user.name "${DEPLOY_ENVIRONMENT}-deployment-bot" &&\
         K8S_OPS_DIR=`mktemp -d` && cd $K8S_OPS_DIR &&\
         git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" . &&\
-        if [ ! -e "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" ]; then
-          echo '{}' > "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml";
-        fi &&\
         yaml set "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" \
-                 "${DEPLOY_VALUES_UPDATE_KEY}" "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
-
+                 "${DEPLOY_VALUES_UPDATE_KEY}" "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" > tmp-auto-updated-values &&\
+        cat tmp-auto-updated-values > "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
         git add "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
         git commit -m "${DEPLOY_COMMIT_MESSAGE}" &&\
         git push https://${GIT_REPO_TOKEN}'@'github.com/${K8S_OPS_REPO_SLUG}.git "${K8S_OPS_REPO_BRANCH}"
