@@ -1,7 +1,7 @@
 {
-  "name": "budgetkey-app-main-page",
+  "name": "socialmap-app-main-page",
   "version": "1.0.0",
-  "description": "BudgetKey Main Page App",
+  "description": "Social Map Main Page App",
   "engines": {
     "node": "^8.1.0",
     "npm": "^5.2.0"

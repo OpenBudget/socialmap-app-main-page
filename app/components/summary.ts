@@ -11,8 +11,8 @@ import { UtilsService } from '../services';
       <!--[ngClass]="{active: true || isActive, collapsed: true || isCollapsed}">-->
       <div class="description">
         <div class="speech-bubble question">הי, מה זה האתר הזה?</div>
-        <!--<div class="speech-bubble answer">מה? מפתח התקציב?</div>-->
-        <div class="speech-bubble answer">אספנו והנגשנו ב״מפתח התקציב״ את כל המידע על תקציב המדינה ועל הוצאות הממשלה &ndash;<br/> כדי שנוכל לדעת מה עושים עם הכסף שלנו&hellip;</div>
+        <!--<div class="speech-bubble answer">מה? המפה החברתית?</div>-->
+        <div class="speech-bubble answer">אספנו והנגשנו ב״מפה החברתית״ את כל המידע על מפות חברתיות ועל חברות מפות &ndash;<br/> כדי שנוכל לדעת מה עושים עם החברה שלנו&hellip;</div>
       </div>
       <div class="row">
         <div class="col-xs-2">
@@ -29,9 +29,7 @@ import { UtilsService } from '../services';
         <div class="col-xs-8">
           <div #container class="amount">
             <div class="title">
-              <div>תקציב המדינה המאושר לשנת</div>
-              <div>{{year}}</div>
-              <div>הוא</div>
+              
             </div>
             <div class="container">
               <!--<div class="scroll-down">-->
@@ -55,8 +53,7 @@ import { UtilsService } from '../services';
                 <!--</div>-->
               <!--</div>-->
               <div class="value">
-                <span>{{ formatValue(amount) }}</span>
-                <span>{{ valueSuffix(amount) }}<br>₪</span>
+                
               </div>
             </div>
           </div>
