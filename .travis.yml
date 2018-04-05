@@ -9,7 +9,7 @@ os:
   - linux
 env:
   matrix:
-    - DEPLOY_ENVIRONMENT=production DEPLOY_BRANCH=master DOCKER_IMAGE=orihoch/socialmap-app-main-page
+    - DEPLOY_ENVIRONMENT=production DEPLOY_BRANCH=master
     - ""
   global:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -17,6 +17,9 @@ env:
     - CHROME_BIN=chromium-browser
     - K8S_OPS_REPO_BRANCH=master
     - K8S_OPS_REPO_SLUG=OpenBudget/budgetkey-k8s
+    - DOCKER_IMAGE=orihoch/socialmap-app-main-page
+    - DEPLOY_VALUES_UPDATE_KEY=socialmap.mainpageImage
+    - DEPLOY_COMMIT_MESSAGE="automatic update of socialmap main page image"
 before_script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
 install:
@@ -40,12 +43,15 @@ script:
         docker push "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" &&\
         git config user.email "deployment-bot@${DEPLOY_ENVIRONMENT}" &&\
         git config user.name "${DEPLOY_ENVIRONMENT}-deployment-bot" &&\
-        K8S_OPS_DIR=`mktemp -d` &&\
-        git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" "${K8S_OPS_DIR}" &&\
-        yaml set "${K8S_OPS_DIR}/environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" \
-                 socialmap.mainpageImage "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
-        cd $K8S_OPS_DIR &&\
+        K8S_OPS_DIR=`mktemp -d` && cd $K8S_OPS_DIR &&\
+        git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" . &&\
+        if [ ! -e "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" ]; then
+          echo '{}' > "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml";
+        fi &&\
+        yaml set "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" \
+                 "${DEPLOY_VALUES_UPDATE_KEY}" "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
+
         git add "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
-        git commit -m "automatic update of socialmap main page image" &&\
+        git commit -m "${DEPLOY_COMMIT_MESSAGE}" &&\
         git push https://${GIT_REPO_TOKEN}'@'github.com/${K8S_OPS_REPO_SLUG}.git "${K8S_OPS_REPO_BRANCH}"
     fi
