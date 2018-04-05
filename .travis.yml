@@ -25,6 +25,6 @@ script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run e2e; fi
   - |
     if [ "${DEPLOY_ENVIRONMENT}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
-       [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy); then
+       [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy; then
         docker build -t "orihoch/socialmap-app-main-page:${TRAVIS_COMMIT}"
     fi
