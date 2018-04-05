@@ -1,20 +1,30 @@
 dist: trusty
 sudo: required
+services:
+  - docker
 language: node_js
 node_js:
   - "8"
 os:
   - linux
 env:
+  matrix:
+    - DEPLOY_ENVIRONMENT=production DEPLOY_BRANCH=master
+    - ""
   global:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
 before_script:
-  - sh -e /etc/init.d/xvfb start
+  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
 install:
-  - npm install
+  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm install; fi
 script:
-  - npm run lint
-  - npm run test
-  - npm run e2e
+  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run lint; fi
+  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run test; fi
+  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run e2e; fi
+  - |
+    if [ "${DEPLOY_ENVIRONMENT}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
+       [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy); then
+        docker build -t "orihoch/socialmap-app-main-page:${TRAVIS_COMMIT}"
+    fi
