@@ -18,7 +18,8 @@ env:
     - K8S_OPS_REPO_BRANCH=master
     - K8S_OPS_REPO_SLUG=OpenBudget/budgetkey-k8s
     - DOCKER_IMAGE=orihoch/socialmap-app-main-page
-    - DEPLOY_VALUES_UPDATE_KEY=socialmap.mainpageImage
+    - DEPLOY_VALUES_CHART_NAME=socialmap
+    - DEPLOY_VALUES_IMAGE_PROP=mainpageImage
     - DEPLOY_COMMIT_MESSAGE="automatic update of socialmap main page image"
 before_script:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
@@ -45,10 +46,6 @@ script:
         git config user.name "${DEPLOY_ENVIRONMENT}-deployment-bot" &&\
         K8S_OPS_DIR=`mktemp -d` && cd $K8S_OPS_DIR &&\
         git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" . &&\
-        yaml set "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" \
-                 "${DEPLOY_VALUES_UPDATE_KEY}" "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" > tmp-auto-updated-values &&\
-        cat tmp-auto-updated-values > "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
-        git add "environments/${DEPLOY_ENVIRONMENT}/values.auto-updated.yaml" &&\
-        git commit -m "${DEPLOY_COMMIT_MESSAGE}" &&\
-        git push https://${GIT_REPO_TOKEN}'@'github.com/${K8S_OPS_REPO_SLUG}.git "${K8S_OPS_REPO_BRANCH}"
+        ./helm_update_values.sh '{"'"${DEPLOY_VALUES_CHART_NAME}"'":{"'"${DEPLOY_VALUES_IMAGE_PROP}"'":"'"${DOCKER_IMAGE}:${TRAVIS_COMMIT}"'"}}' \
+                                "${DEPLOY_COMMIT_MESSAGE}" "${GITHUB_TOKEN}" "${${K8S_OPS_REPO_SLUG}}" "${K8S_OPS_REPO_BRANCH}"
     fi
