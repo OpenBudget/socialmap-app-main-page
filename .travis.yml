@@ -9,7 +9,7 @@ os:
   - linux
 env:
   matrix:
-    - DEPLOY_ENVIRONMENT=production DEPLOY_BRANCH=master
+    - DEPLOY_BRANCH=master
     - ""
   global:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -22,16 +22,16 @@ env:
     - DEPLOY_VALUES_IMAGE_PROP=mainpageImage
     - DEPLOY_COMMIT_MESSAGE="automatic update of socialmap main page image"
 before_script:
-  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
+  - if [ "${DEPLOY_BRANCH}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
 install:
-  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm install; fi
-  - if [ "${DEPLOY_ENVIRONMENT}" != "" ]; then npm install -g yaml-cli; fi
+  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm install; fi
+  - if [ "${DEPLOY_BRANCH}" != "" ]; then npm install -g yaml-cli; fi
 script:
-  # - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run lint; fi
-  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run test; fi
-  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run e2e; fi
+  # - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run lint; fi
+  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run test; fi
+  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run e2e; fi
   - |
-    if [ "${DEPLOY_ENVIRONMENT}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
+    if [ "${DEPLOY_BRANCH}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
        [ "${DOCKER_USERNAME}" != "" ] && [ "${DOCKER_PASSWORD}" != "" ] && [ "${GITHUB_TOKEN}" != "" ] &&\
        [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy; then
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&\
@@ -42,12 +42,9 @@ script:
                      . &&\
         docker push "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
         docker push "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" &&\
-        git config user.email "deployment-bot@${DEPLOY_ENVIRONMENT}" &&\
-        git config user.name "${DEPLOY_ENVIRONMENT}-deployment-bot" &&\
         K8S_OPS_DIR=`mktemp -d` && cd $K8S_OPS_DIR &&\
         git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" . &&\
         ./helm_update_values.sh '{"'"${DEPLOY_VALUES_CHART_NAME}"'":{"'"${DEPLOY_VALUES_IMAGE_PROP}"'":"'"${DOCKER_IMAGE}:${TRAVIS_COMMIT}"'"}}' \
                                 "${DEPLOY_COMMIT_MESSAGE}" "${GITHUB_TOKEN}" \
-                                "${K8S_OPS_REPO_SLUG}" "${K8S_OPS_REPO_BRANCH}" \
-                                "${DEPLOY_ENVIRONMENT}"
+                                "${K8S_OPS_REPO_SLUG}" "${K8S_OPS_REPO_BRANCH}"
     fi
