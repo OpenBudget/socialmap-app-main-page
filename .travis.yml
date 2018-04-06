@@ -27,7 +27,7 @@ install:
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm install; fi
   - if [ "${DEPLOY_ENVIRONMENT}" != "" ]; then npm install -g yaml-cli; fi
 script:
-  - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run lint; fi
+  # - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run lint; fi
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run test; fi
   - if [ "${DEPLOY_ENVIRONMENT}" == "" ]; then npm run e2e; fi
   - |
