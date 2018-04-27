@@ -1,50 +1,43 @@
 dist: trusty
 sudo: required
-services:
-  - docker
 language: node_js
 node_js:
   - "8"
 os:
   - linux
 env:
-  matrix:
-    - DEPLOY_BRANCH=master
-    - ""
   global:
     - DBUS_SESSION_BUS_ADDRESS=/dev/null
     - DISPLAY=:99.0
     - CHROME_BIN=chromium-browser
     - K8S_OPS_REPO_BRANCH=master
-    - K8S_OPS_REPO_SLUG=OriHoch/budgetkey-k8s
-    - DOCKER_IMAGE=orihoch/socialmap-app-main-page
+    - K8S_OPS_REPO_SLUG=OpenBudget/budgetkey-k8s
+    - DOCKER_IMAGE=budgetkey/socialmap-app-main-page
+    - DEPLOY_YAML_UPDATE_FILE=values.auto-updated.yaml
     - DEPLOY_VALUES_CHART_NAME=socialmap
     - DEPLOY_VALUES_IMAGE_PROP=mainpageImage
-    - DEPLOY_COMMIT_MESSAGE="automatic update of socialmap main page image"
+    - DEPLOY_COMMIT_MESSAGE="automatic update of socialmap-app-main-page"
+    - DEPLOY_GIT_EMAIL=budgetkey-deployer@null.void
+    - DEPLOY_GIT_USER=budgetkey-deployer
+    - secure: jeqp3wST22MCkI55JKxe1cZ+Z4uT/+MYcwrhrQo+6Fm63AipYLn42nkwb+mogY72yCqPyB1dHMVnSUmJDCzTEbPYyqS3+7w/wZdo3lVGYtHt1XkJ5ZcU+J64XoyWqZJgwEyeL99j/Uc9g3mtlkTUEWynsCh3lLgxx/4g52BeKNn7mDU0QtlTfpXhEHnS2ww+Hwoe1co6Ud8ZmxByXjiXiuRD+uIIF5NZv48KMfLEnCJVzEnZbW+fBi4sjILJEkYDuXkxkQkDjGZiawFA2J7Y1fMWD0+h9hRihGTUx5q3o5xl8ljzsj9oqHTlcm3uRxJQIQaTgZEnil3sTMv87t/xLtE0MMfn6aPJrfHkx647abaG2rsLY5nedYEh7A1a/gcahh7CMAA9E9o+wm8q4plwF7qZgb2pCiwHdY68ASdIDJ2mxkLsDIO0RiUnRHwNtn5938enwy/88/lzOxDZ/dqrkBpTO4W+RNJhG0f4RRFRuxyJDj72gmGol15Iz75GnJY0SEz6ItiDQWWMTSrucjn0rZ6oIhOnQQoTg6741Makocgr+pbviIdQrei2mH8TIqeR57Hl4/WVKGgfKmlvZ2La9ZvpttlW3Duofe51I8K5H6O465EgqnSvG1gN/VCU5HsHccwSrLUhz4sq6r2RE5U1jAa7mKW3Oq9dCRcM1CUS+Y4=
+    - secure: N0L2fRvM4SUfcfy0/vyYxFy+yVrpn8kz8WPFXHuw4POhOSRo3qvYjPYFksdfH8svE954sAsuljJtpjXjpnkgFOBKpKqBI89Wb+GdA2IQLO7PKT1jmKdbOQph00QPmfENTeRqpnmyoMmfo+BVf9vH5CFK5brwmAQk/v4z//q5gBuLKSu7ufb+QFh1pbtRVzyZ5gFQWYfyKdwJKKukFWE9oeuEOAcqg1FnGMMhxzJoPAUUaB3dFlOAzBWX1g3l48Q9jWpcXkNsuurXomJ7Z7yJfSmXkkJA3KABIGFCk3JbismOEFi3wXyGLKT8jPu5kwXyQeau/gcx1ru3T4WB2B5bXTvR8RDJFY25EfHw/mGlIlrTdbqOyx1P3MsppkUb//yCiI62LArjLrx6q4x0oDScmdURsTHaPcL7LwnmTNr+AUwt3JBAB6xJGzUVjbvabq5oKYky/5braGb13V40gOau53bKCwFABQxMF6RkYF8xnieEcU0iWMCxzAgQYCpSzoEGqDyVbKMOccxEtLP5k1MtT99NpwZEZRm9ZlSfsUflNx210f7HFMkSljOgm6Vdr5XCyCphzkMTpMTRHvil9RKq39oifUsjF4j0EQUTNuapiYuM8OqiGwNqdKkLfFmq2ftEMW1xyJFwZVAr3zAM+h8Z8XC2nTwidN4QNcHrtp63Zj4=
+    - secure: QQ/Dbs/eG8fTS/eLdcBtuAfXiujIHtR1Oh3oqFqJetVeSO4/DCl3ESIOCGpfTE7OifraUuYFaeXulyqMqWXhxjC4EDpURaTvjaHE6ZpAUmlZRSpl62HZqDJI5+xtz5qTRU1txqv3zlFiC3FpL85/prR/DRdXYM3wbLaW2Duj5dMMXUit+v+FIhrzJ5F6pundADRWkAJZanWgy90Oxz+uDiBtcbWrISJvouhpkNF/ixsXJZiRMtbIMQuPRkzJZd2TqN/AJud7b9c0u1DjgkhT7Ltw1dBClindzeKlbgkQ7gTglbHfIiYFHaRQRKWhW/skyg1zrRNBcAqvaOSG9CiNgWT/lFodKVdqqL+Q0dEuPkbSEfiw/qg4nFApVDiiqaxSGejyQwwzj8DCfDZnYdUbyUAQaHuEhhdwNJ6kU545abZTsuSXfiwpsFuL4gl6PKltvsRzMO4F6kMCLQK5rAON2/L2BJMlRA+s7IGXA4GWKHbtUpc2poIXeo74aUZLMxmZRCYbcaeoHAjHYrU2d/TJQs+zq/OyuOI7SdB3oDSCuAWjgqrK9qXk44z2vh0jG/KZP9twl9JhIC1cZSFGa/ccsETFmw5HAcsOQChrHhYK5R2sv9uewdlYdKQKhc1NM2SH4IFMrE4+a5D+zFG5K9la/QdOMzv7zIEBNcTfklY33nU=
+services:
+  - docker
+before_install:
+  - curl -s https://raw.githubusercontent.com/OpenBudget/budgetkey-k8s/master/apps_travis_script.sh > .travis.sh
+  - bash .travis.sh script
 before_script:
-  - if [ "${DEPLOY_BRANCH}" == "" ]; then sh -e /etc/init.d/xvfb start; fi
+  - sh -e /etc/init.d/xvfb start
 install:
-  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm install; fi
-  - if [ "${DEPLOY_BRANCH}" != "" ]; then npm install -g yaml-cli; fi
+  - npm install
 script:
-  # - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run lint; fi
-  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run test; fi
-  - if [ "${DEPLOY_BRANCH}" == "" ]; then npm run e2e; fi
-  - |
-    if [ "${DEPLOY_BRANCH}" != "" ] && [ "${TRAVIS_BRANCH}" == "${DEPLOY_BRANCH}" ] &&\
-       [ "${DOCKER_USERNAME}" != "" ] && [ "${DOCKER_PASSWORD}" != "" ] && [ "${GITHUB_TOKEN}" != "" ] &&\
-       [ "${TRAVIS_PULL_REQUEST}" == "false" ] && ! echo "${TRAVIS_COMMIT_MESSAGE}" | grep -- --no-deploy; then
-        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin &&\
-        ( docker pull "${DOCKER_IMAGE}:${DEPLOY_BRANCH}"; true ) &&\
-        docker build --cache-from "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" \
-                     -t "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" \
-                     -t "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" \
-                     . &&\
-        docker push "${DOCKER_IMAGE}:${TRAVIS_COMMIT}" &&\
-        docker push "${DOCKER_IMAGE}:${DEPLOY_BRANCH}" &&\
-        K8S_OPS_DIR=`mktemp -d` && cd $K8S_OPS_DIR &&\
-        git clone --depth 1 --branch "${K8S_OPS_REPO_BRANCH}" "https://github.com/${K8S_OPS_REPO_SLUG}.git" . &&\
-        ./helm_update_values.sh '{"'"${DEPLOY_VALUES_CHART_NAME}"'":{"'"${DEPLOY_VALUES_IMAGE_PROP}"'":"'"${DOCKER_IMAGE}:${TRAVIS_COMMIT}"'"}}' \
-                                "${DEPLOY_COMMIT_MESSAGE}" "${GITHUB_TOKEN}" \
-                                "${K8S_OPS_REPO_SLUG}" "${K8S_OPS_REPO_BRANCH}"
-    fi
+  - npm run lint || true
+  - npm run test
+  - npm run e2e
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash .travis.sh deploy
+  on:
+    branch: master
