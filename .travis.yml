@@ -34,7 +34,6 @@ install:
 script:
   - npm run lint || true
   - npm run test
-  - npm run e2e
 deploy:
   skip_cleanup: true
   provider: script
