@@ -1,4 +1,1 @@
-export * from './summary';
-export * from './map-visualization';
-export * from './category-visualization';
-export * from './hero'
+export let a: string = 'a';;
