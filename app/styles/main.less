@@ -142,4 +142,34 @@ budgetkey-header {
       }
     }    
   }
+
+  .tab-contents-container {
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 60px;
+
+    .bubble-chart {
+
+      position: relative;
+
+      circle.main {
+        fill: #F57445;
+        stroke: none;
+      }
+
+      path {
+        stroke: black;
+        fill: none;
+      }
+
+      .circles-label {
+        position: absolute;
+        // max-width: 85px;
+      }
+
+    }
+
+  }
 }

@@ -52,6 +52,38 @@ import {Component, ViewChild} from '@angular/core';
             </div>
           </div>        
         </div>
+        <div class="tab-contents-container">
+          <div *ngIf="active=='hadash'"
+               class="bubble-chart">
+            <svg 
+                [attr.width]="data.details.foa_stats.width + 'px'"
+                [attr.height]="data.details.foa_stats.height + 'px'">
+                <g *ngFor="let item of data.details.foa_stats.items">
+                  <circle
+                    [attr.cx]="item.label_y + 15"
+                    [attr.cy]="item.label_x + 20"
+                    r="3"
+                  ></circle>
+                  <path 
+                    [attr.d]="path(item)"></path>
+                  <circle class="main"
+                    [attr.cx]="data.details.foa_stats.width - item.x"
+                    [attr.cy]="item.y"
+                    [attr.r]="item.r"
+                  ></circle>
+                </g>
+            </svg>
+            <div *ngFor="let item of data.details.foa_stats.items"
+              class="circles-label"
+              [style.right]="(data.details.foa_stats.width - item.label_y) + 'px'"
+              [style.top]="item.label_x + 'px'"
+            >
+              <strong>{{ item.label }}</strong><br/>
+              <span>ארגונים: </span>
+              <span class="count">{{ item.num }}</span>
+            </div>
+          </div>
+        </div>
       </budgetkey-container>
   `,
 })
@@ -61,5 +93,13 @@ export class AppComponent {
   private data: any = window['prefetchedData'];
 
   constructor() {
+  }
+
+  path(item: any) {
+    let w = this.data.details.foa_stats.width;
+    return `M${item.label_y + 15},${item.label_x + 20} 
+    L${item.label_y + 45},${item.label_x + 20}
+    L${w - item.x},${item.y}
+`;
   }
 }
