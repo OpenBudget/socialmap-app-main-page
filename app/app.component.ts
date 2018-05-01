@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-let map = require('../assets/img/map.svg');
+let map = require('./map.svg.html');
 
 @Component({
   selector: 'my-app',

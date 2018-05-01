@@ -1,0 +1,586 @@
+{
+  "key": "reports/ngos-main-page",
+  "value": {
+    "charts": [
+      {
+        "chart": {
+          "values": [
+            {
+              "amount": 42562424035.61,
+              "amount_fmt": "42,562,424,035.61 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05e4\u05e0\u05d9\u05dd"
+            },
+            {
+              "amount": 38778457430.34,
+              "amount_fmt": "38,778,457,430.34 \u20aa",
+              "label": "\u05de.\u05d4\u05d0\u05d5\u05e6\u05e8 - \u05de\u05e0\u05d4\u05dc\u05ea \u05d4\u05d2\u05de\u05dc\u05d0\u05d5\u05ea"
+            },
+            {
+              "amount": 26834263973.53,
+              "amount_fmt": "26,834,263,973.53 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d7\u05d9\u05e0\u05d5\u05da"
+            },
+            {
+              "amount": 20250213945.24,
+              "amount_fmt": "20,250,213,945.24 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05d7\u05d1\u05d5\u05e8\u05d4"
+            },
+            {
+              "amount": 20210940787.65,
+              "amount_fmt": "20,210,940,787.65 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d1\u05e8\u05d9\u05d0\u05d5\u05ea"
+            },
+            {
+              "amount": 12754946791.06,
+              "amount_fmt": "12,754,946,791.06 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05e8\u05d5\u05d5\u05d7\u05d4 - \u05d6\u05e8\u05d5\u05e2 \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4"
+            },
+            {
+              "amount": 6117867624.73,
+              "amount_fmt": "6,117,867,624.73 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05e8\u05d1\u05d5\u05ea \u05d5\u05d4\u05e1\u05e4\u05d5\u05e8\u05d8"
+            },
+            {
+              "amount": 6061984221.48,
+              "amount_fmt": "6,061,984,221.48 \u20aa",
+              "label": "\u05d7\u05d9\u05e0\u05d5\u05da-\u05d0\u05d2\u05e3 \u05dc\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05ea\u05d5\u05e8\u05e0\u05d9\u05d9\u05dd"
+            },
+            {
+              "amount": 4429576558.99,
+              "amount_fmt": "4,429,576,558.99 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d0\u05d5\u05e6\u05e8"
+            },
+            {
+              "amount": 4303695303.02,
+              "amount_fmt": "4,303,695,303.02 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05de\u05e7\u05e8\u05e7\u05e2\u05d9 \u05d9\u05e9\u05e8\u05d0\u05dc"
+            },
+            {
+              "amount": 4302191521.28,
+              "amount_fmt": "4,302,191,521.28 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d1\u05d9\u05e0\u05d5\u05d9 \u05d5\u05d4\u05e9\u05d9\u05db\u05d5\u05df"
+            },
+            {
+              "amount": 3151927930.08,
+              "amount_fmt": "3,151,927,930.08 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9 \u05d3\u05ea"
+            },
+            {
+              "amount": 2754939895.7,
+              "amount_fmt": "2,754,939,895.70 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05de\u05d9\u05dd"
+            },
+            {
+              "amount": 2696763094.19,
+              "amount_fmt": "2,696,763,094.19 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d7\u05e7\u05dc\u05d0\u05d5\u05ea \u05d5\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d4\u05db\u05e4\u05e8"
+            },
+            {
+              "amount": 2542695260.38,
+              "amount_fmt": "2,542,695,260.38 \u20aa",
+              "label": "\u05de. \u05d4\u05d7\u05d9\u05e0\u05d5\u05da-\u05d7\u05d9\u05e0\u05d5\u05da \u05d4\u05ea\u05d9\u05d9\u05e9\u05d1\u05d5\u05ea\u05d9"
+            },
+            {
+              "amount": 2513132777.24,
+              "amount_fmt": "2,513,132,777.24 \u20aa",
+              "label": "\u05de.\u05d4\u05d0\u05d5\u05e6\u05e8 - \u05de\u05d8\u05d4 \u05d4\u05d7\u05e9\u05d1 \u05d4\u05db\u05dc\u05dc\u05d9"
+            },
+            {
+              "amount": 2287582017.41,
+              "amount_fmt": "2,287,582,017.41 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d1\u05d9\u05e0\u05d5\u05d9"
+            },
+            {
+              "amount": 2279259271.36,
+              "amount_fmt": "2,279,259,271.36 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05db\u05dc\u05db\u05dc\u05d4"
+            },
+            {
+              "amount": 2240056952.85,
+              "amount_fmt": "2,240,056,952.85 \u20aa",
+              "label": "\u05e8\u05d5\u05d4\"\u05de"
+            },
+            {
+              "amount": 1620347552.19,
+              "amount_fmt": "1,620,347,552.19 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05d4\u05d2\u05e0\u05ea \u05d4\u05e1\u05d1\u05d9\u05d1\u05d4"
+            },
+            {
+              "amount": 1556263583.15,
+              "amount_fmt": "1,556,263,583.15 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05e2\u05dc\u05d9\u05d9\u05d4 \u05d5\u05d4\u05e7\u05dc\u05d9\u05d8\u05d4"
+            },
+            {
+              "amount": 1371146299.25,
+              "amount_fmt": "1,371,146,299.25 \u20aa",
+              "label": "\u05e9\u05d9\u05e8\u05d5\u05ea \u05d1\u05ea\u05d9 \u05d4\u05e1\u05d5\u05d4\u05e8"
+            },
+            {
+              "amount": 1244114581.1,
+              "amount_fmt": "1,244,114,581.10 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05e8\u05d5\u05d5\u05d7\u05d4"
+            },
+            {
+              "amount": 1070606534.02,
+              "amount_fmt": "1,070,606,534.02 \u20aa",
+              "label": "\u05d4\u05d0\u05d5\u05e6\u05e8-\u05d6\u05db\u05d5\u05d9\u05d5\u05ea \u05e0\u05d9\u05e6\u05d5\u05dc\u05d9 \u05d4\u05e9\u05d5\u05d0\u05d4"
+            },
+            {
+              "amount": 1049842277.61,
+              "amount_fmt": "1,049,842,277.61 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05de\u05e1\u05d9\u05dd \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc"
+            },
+            {
+              "amount": 1026839173.45,
+              "amount_fmt": "1,026,839,173.45 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05d1\u05d8\u05d7\u05d5\u05df \u05e4\u05e0\u05d9\u05dd"
+            },
+            {
+              "amount": 1021102669.38,
+              "amount_fmt": "1,021,102,669.38 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05de\u05e9\u05e4\u05d8\u05d9\u05dd"
+            },
+            {
+              "amount": 810122363.77,
+              "amount_fmt": "810,122,363.77 \u20aa",
+              "label": "\u05d4\u05d7\u05d8\u05d9\u05d1\u05d4 \u05dc\u05d4\u05ea\u05d9\u05d9\u05e9\u05d1\u05d5\u05ea \u05d1\u05d4\u05e1\u05ea\u05d3\u05e8\u05d5\u05ea \u05d4\u05e6\u05d9\u05d5\u05e0\u05d9\u05ea \u05d4\u05e2\u05d5\u05dc\u05de\u05d9\u05ea"
+            },
+            {
+              "amount": 800864766.81,
+              "amount_fmt": "800,864,766.81 \u20aa",
+              "label": "\u05d4\u05e0\u05d4\u05dc\u05ea \u05d1\u05ea\u05d9 \u05d4\u05de\u05e9\u05e4\u05d8"
+            },
+            {
+              "amount": 718145471.56,
+              "amount_fmt": "718,145,471.56 \u20aa",
+              "label": "\u05de\u05ea\u05d0\u05dd \u05e4\u05e2\u05d5\u05dc\u05d5\u05ea \u05d4\u05de\u05de\u05e9\u05dc\u05d4 \u05d1\u05e9\u05d8\u05d7\u05d9\u05dd (\u05de\u05ea\u05e4\u05e9)"
+            },
+            {
+              "amount": 717220827.98,
+              "amount_fmt": "717,220,827.98 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05d9\u05d9\u05e8\u05d5\u05ea"
+            },
+            {
+              "amount": 710991347.0,
+              "amount_fmt": "710,991,347.00 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05d1\u05d9\u05d8\u05d7\u05d5\u05df \u05d4\u05e4\u05e0\u05d9\u05dd"
+            },
+            {
+              "amount": 708752656.93,
+              "amount_fmt": "708,752,656.93 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05d7\u05d1\u05d5\u05e8\u05d4 \u05d5\u05d4\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d1\u05d3\u05e8\u05db\u05d9\u05dd"
+            },
+            {
+              "amount": 643760488.87,
+              "amount_fmt": "643,760,488.87 \u20aa",
+              "label": "\u05d4\u05e8\u05e9\u05d5\u05ea \u05d4\u05d0\u05e8\u05e6\u05d9\u05ea \u05dc\u05db\u05d1\u05d0\u05d5\u05ea \u05d5\u05d4\u05e6\u05dc\u05d4"
+            },
+            {
+              "amount": 638474835.38,
+              "amount_fmt": "638,474,835.38 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05de\u05d3\u05e2 \u05d5\u05d4\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4"
+            },
+            {
+              "amount": 555559057.94,
+              "amount_fmt": "555,559,057.94 \u20aa",
+              "label": "\u05d4\u05d7\u05d8\u05d9\u05d1\u05d4 \u05dc\u05d4\u05ea\u05d9\u05e9\u05d1\u05d5\u05ea"
+            },
+            {
+              "amount": 484977755.54,
+              "amount_fmt": "484,977,755.54 \u20aa",
+              "label": "\u05ea\u05e0\u05d5\u05e4\u05d4"
+            },
+            {
+              "amount": 414345421.27,
+              "amount_fmt": "414,345,421.27 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05e8\u05d0\u05e9 \u05d4\u05de\u05de\u05e9\u05dc\u05d4"
+            },
+            {
+              "amount": 406979374.08,
+              "amount_fmt": "406,979,374.08 \u20aa",
+              "label": "\u05e4\u05d9\u05ea\u05d5\u05d7 \u05e0\u05d2\u05d1, \u05d2\u05dc\u05d9\u05dc \u05d5\u05e9.\u05e4\u05e2\u05d5\u05dc\u05d4"
+            },
+            {
+              "amount": 404689832.54,
+              "amount_fmt": "404,689,832.54 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05d0\u05db\u05d9\u05e4\u05d4 \u05d5\u05d4\u05d2\u05d1\u05d9\u05d9\u05d4"
+            },
+            {
+              "amount": 404276300.29,
+              "amount_fmt": "404,276,300.29 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05e8\u05d5\u05d5\u05d7\u05d4 \u05d5\u05d4\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd \u05d4\u05d7\u05d1\u05e8\u05ea\u05d9\u05d9\u05dd"
+            },
+            {
+              "amount": 353071967.68,
+              "amount_fmt": "353,071,967.68 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05d0\u05d5\u05db\u05dc\u05d5\u05e1\u05d9\u05df \u05d5\u05d4\u05d4\u05d2\u05d9\u05e8\u05d4"
+            },
+            {
+              "amount": 325528116.23,
+              "amount_fmt": "325,528,116.23 \u20aa",
+              "label": "\u05e9\u05d9\u05e8\u05d5\u05ea \u05d4\u05ea\u05e2\u05e1\u05d5\u05e7\u05d4 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9"
+            },
+            {
+              "amount": 235621934.74,
+              "amount_fmt": "235,621,934.74 \u20aa",
+              "label": "\u05de\u05d9\u05e0\u05d4\u05dc \u05d4\u05de\u05d7\u05e7\u05e8 \u05d4\u05d7\u05e7\u05dc\u05d0\u05d9"
+            },
+            {
+              "amount": 196006755.91,
+              "amount_fmt": "196,006,755.91 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d4\u05dc\u05d0\u05d5\u05de\u05d9 - \u05d0\u05d6\u05e8\u05d7\u05d9"
+            },
+            {
+              "amount": 192641357.26,
+              "amount_fmt": "192,641,357.26 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05dc\u05d0\u05d5\u05de\u05d9\u05ea \u05dc\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d3\u05e8\u05db\u05d9\u05dd"
+            },
+            {
+              "amount": 167277357.54,
+              "amount_fmt": "167,277,357.5399999985237 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05e9\u05d5\u05d5\u05d9\u05d5\u05df \u05d7\u05d1\u05e8\u05ea\u05d9"
+            },
+            {
+              "amount": 155497265.83,
+              "amount_fmt": "155,497,265.83 \u20aa",
+              "label": "\u05d4\u05de\u05d9\u05e0\u05d4\u05dc \u05dc\u05d7\u05d9\u05e0\u05d5\u05da \u05d4\u05ea\u05d9\u05d9\u05e9\u05d1\u05d5\u05ea\u05d9 \u05d5\u05e2\u05dc\u05d9\u05d9\u05ea \u05d4\u05e0\u05d5\u05e2\u05e8"
+            },
+            {
+              "amount": 149856872.82,
+              "amount_fmt": "149,856,872.82 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d7\u05d5\u05e5"
+            },
+            {
+              "amount": 138931513.62,
+              "amount_fmt": "138,931,513.62 \u20aa",
+              "label": "\u05d4\u05d8\u05dc\u05d5\u05d5\u05d9\u05d6\u05d9\u05d4 \u05d4\u05d7\u05d9\u05e0\u05d5\u05db\u05d9\u05ea \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9\u05ea"
+            },
+            {
+              "amount": 123833414.81,
+              "amount_fmt": "123,833,414.81 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4"
+            },
+            {
+              "amount": 103414479.64,
+              "amount_fmt": "103,414,479.64 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05de\u05d9\u05dd \u05d5\u05d4\u05d1\u05d9\u05d5\u05d1"
+            },
+            {
+              "amount": 80532899.42,
+              "amount_fmt": "80,532,899.42 \u20aa",
+              "label": "\u05de\u05d9\u05e0\u05d4\u05dc \u05d4\u05ea\u05db\u05e0\u05d5\u05df"
+            },
+            {
+              "amount": 77951442.87,
+              "amount_fmt": "77,951,442.87 \u20aa",
+              "label": "\u05d4\u05e8\u05e9\u05d5\u05ea \u05dc\u05d4\u05e1\u05d3\u05e8\u05ea \u05d4\u05ea\u05d9\u05d9\u05e9\u05d1\u05d5\u05ea \u05d4\u05d1\u05d3\u05d5\u05d0\u05d9\u05dd \u05d1\u05e0\u05d2\u05d1"
+            },
+            {
+              "amount": 77746642.79,
+              "amount_fmt": "77,746,642.79 \u20aa",
+              "label": "\u05d4\u05de\u05db\u05d5\u05df \u05d4\u05d2\u05d9\u05d0\u05d5\u05dc\u05d5\u05d2\u05d9"
+            },
+            {
+              "amount": 67596588.59,
+              "amount_fmt": "67,596,588.59 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05e7\u05e9\u05d5\u05e8\u05ea"
+            },
+            {
+              "amount": 50187659.54,
+              "amount_fmt": "50,187,659.54 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05ea\u05e4\u05d5\u05e6\u05d5\u05ea"
+            },
+            {
+              "amount": 43961148.72,
+              "amount_fmt": "43,961,148.72 \u20aa",
+              "label": "\u05e0\u05e6\u05d9\u05d1\u05d5\u05ea \u05e9\u05d9\u05e8\u05d5\u05ea \u05d4\u05de\u05d3\u05d9\u05e0\u05d4"
+            },
+            {
+              "amount": 43849637.35,
+              "amount_fmt": "43,849,637.35 \u20aa",
+              "label": "\u05d4\u05dc\u05e9\u05db\u05d4 \u05d4\u05de\u05e8\u05db\u05d6\u05d9\u05ea \u05dc\u05e1\u05d8\u05d8\u05d9\u05e1\u05d8\u05d9\u05e7\u05d4"
+            },
+            {
+              "amount": 43541493.46,
+              "amount_fmt": "43,541,493.46 \u20aa",
+              "label": "\u05d4\u05e0\u05d4\u05dc\u05ea \u05d1\u05ea\u05d9 \u05d4\u05d3\u05d9\u05df \u05d4\u05e8\u05d1\u05e0\u05d9\u05d9\u05dd"
+            },
+            {
+              "amount": 36032542.35,
+              "amount_fmt": "36,032,542.35 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 - \u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05e6\u05e4\u05d5\u05df"
+            },
+            {
+              "amount": 35913751.23,
+              "amount_fmt": "35,913,751.23 \u20aa",
+              "label": "\u05d4\u05de\u05e8\u05db\u05d6 \u05dc\u05de\u05d9\u05e4\u05d5\u05d9 \u05d9\u05e9\u05e8\u05d0\u05dc"
+            },
+            {
+              "amount": 30335746.29,
+              "amount_fmt": "30,335,746.29 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 - \u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05d3\u05e8\u05d5\u05dd"
+            },
+            {
+              "amount": 29762643.94,
+              "amount_fmt": "29,762,643.94 \u20aa",
+              "label": "\u05de.\u05d4\u05d0\u05d5\u05e6\u05e8  \u05de\u05e0\u05d4\u05dc \u05d4\u05ea\u05db\u05e0\u05d5\u05df"
+            },
+            {
+              "amount": 26756544.66,
+              "amount_fmt": "26,756,544.66 \u20aa",
+              "label": "\u05d4\u05de\u05d3\u05e4\u05d9\u05e1 \u05d4\u05de\u05de\u05e9\u05dc\u05ea\u05d9"
+            },
+            {
+              "amount": 23511701.29,
+              "amount_fmt": "23,511,701.29 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 - \u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05de\u05e8\u05db\u05d6"
+            },
+            {
+              "amount": 21422411.4,
+              "amount_fmt": "21,422,411.40 \u20aa",
+              "label": "\u05d4\u05e8\u05e9\u05d5\u05ea \u05dc\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9\u05dd \u05e6\u05d9\u05d1\u05d5\u05e8\u05d9\u05d9\u05dd - \u05d7\u05e9\u05de\u05dc"
+            },
+            {
+              "amount": 19976008.69,
+              "amount_fmt": "19,976,008.69 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05d4\u05d4\u05d2\u05d1\u05dc\u05d9\u05dd \u05d4\u05e2\u05e1\u05e7\u05d9\u05d9\u05dd"
+            },
+            {
+              "amount": 19003110.84,
+              "amount_fmt": "19,003,110.84 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 -\u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd"
+            },
+            {
+              "amount": 18987393.61,
+              "amount_fmt": "18,987,393.61 \u20aa",
+              "label": "\u05d4\u05db\u05e0\u05e1\u05ea"
+            },
+            {
+              "amount": 17746714.56,
+              "amount_fmt": "17,746,714.56 \u20aa",
+              "label": "\u05de\u05e9\u05e8\u05d3 \u05d4\u05db\u05dc\u05db\u05dc\u05d4 \u05d5\u05d4\u05ea\u05e2\u05e9\u05d9\u05d9\u05d4"
+            },
+            {
+              "amount": 15336624.67,
+              "amount_fmt": "15,336,624.67 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 - \u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05ea\"\u05d0"
+            },
+            {
+              "amount": 15297111.41,
+              "amount_fmt": "15,297,111.41 \u20aa",
+              "label": "\u05de\u05d1\"\u05e8 - \u05de\u05d7\u05d5\u05d6 \u05d1\u05e8\u05d9\u05d0\u05d5\u05ea \u05d7\u05d9\u05e4\u05d4"
+            },
+            {
+              "amount": 15241295.81,
+              "amount_fmt": "15,241,295.81 \u20aa",
+              "label": "\u05de\u05e2\u05d9\u05d9\u05df \u05d4\u05d7\u05d9\u05e0\u05d5\u05da \u05d4\u05ea\u05d5\u05e8\u05e0\u05d9"
+            },
+            {
+              "amount": 13368188.72,
+              "amount_fmt": "13,368,188.72 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d4\u05e4\u05e8\u05d9\u05e4\u05e8\u05d9\u05d4 \u05d4\u05e0\u05d2\u05d1 \u05d5\u05d4\u05d2\u05dc\u05d9\u05dc"
+            },
+            {
+              "amount": 8041541.31,
+              "amount_fmt": "8,041,541.31 \u20aa",
+              "label": "\u05e8\u05e9\u05d5\u05ea \u05e9\u05d5\u05e7 \u05d4\u05d4\u05d5\u05df, \u05d4\u05d1\u05d9\u05d8\u05d5\u05d7 \u05d5\u05d4\u05d7\u05d9\u05e1\u05db\u05d5\u05df"
+            },
+            {
+              "amount": 7398762.18,
+              "amount_fmt": "7,398,762.18 \u20aa",
+              "label": "\u05d4\u05de\u05e9\u05e8\u05d3 \u05dc\u05e0\u05d5\u05e9\u05d0\u05d9\u05dd \u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05d9\u05dd \u05d5\u05d4\u05e1\u05d1\u05e8\u05d4"
+            },
+            {
+              "amount": 3764777.22,
+              "amount_fmt": "3,764,777.22 \u20aa",
+              "label": "\u05d4\u05e8\u05d1\u05e0\u05d5\u05ea \u05d4\u05e8\u05d0\u05e9\u05d9\u05ea \u05dc\u05d9\u05e9\u05e8\u05d0\u05dc"
+            },
+            {
+              "amount": 1233309.61,
+              "amount_fmt": "1,233,309.61 \u20aa",
+              "label": "\u05d4\u05e9\u05d9\u05e8\u05d5\u05ea \u05d4\u05de\u05d8\u05d0\u05d5\u05e8\u05d5\u05dc\u05d5\u05d2\u05d9 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9"
+            },
+            {
+              "amount": 1002113.0,
+              "amount_fmt": "1,002,113 \u20aa",
+              "label": "\u05e9\u05e8\u05d5\u05ea \u05d4\u05ea\u05e2\u05e1\u05d5\u05e7\u05d4"
+            },
+            {
+              "amount": 452900.0,
+              "amount_fmt": "452,900 \u20aa",
+              "label": "\u05d1\u05d9\u05ea \u05d4\u05e0\u05e9\u05d9\u05d0"
+            },
+            {
+              "amount": 30000.0,
+              "amount_fmt": "30,000 \u20aa",
+              "label": "\u05ea\u05d9\u05d0\u05d5\u05dd \u05d4\u05e4\u05e2\u05d5\u05dc\u05d5\u05ea \u05d1\u05e9\u05d8\u05d7\u05d9\u05dd"
+            }
+          ]
+        },
+        "type": "adamkey"
+      }
+    ],
+    "details": {
+      "district_totals": {
+        "\u05d0\u05d6\u05d5\u05e8 \u05d9\u05d4\u05d5\u05d3\u05d4 \u05d5\u05d4\u05e9\u05d5\u05de\u05e8\u05d5\u05df": {
+          "foas": [
+            "\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05d7\u05d9\u05e0\u05d5\u05da",
+            "\u05d9\u05e9\u05d9\u05d1\u05d5\u05ea \u05d5\u05db\u05d5\u05dc\u05dc\u05d9\u05dd",
+            "\u05d1\u05ea\u05d9 \u05db\u05e0\u05e1\u05ea"
+          ],
+          "totals": 644
+        },
+        "\u05d4\u05d3\u05e8\u05d5\u05dd": {
+          "foas": [
+            "\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9 \u05e8\u05d5\u05d5\u05d7\u05d4",
+            "\u05d0\u05d2\u05d5\u05d3\u05d5\u05ea \u05e1\u05e4\u05d5\u05e8\u05d8",
+            "\u05e7\u05d4\u05d9\u05dc\u05d4 \u05d5\u05d7\u05d1\u05e8\u05d4"
+          ],
+          "totals": 1184
+        },
+        "\u05d4\u05de\u05e8\u05db\u05d6": {
+          "foas": [
+            "\u05d1\u05ea\u05d9 \u05db\u05e0\u05e1\u05ea",
+            "\u05e1\u05e4\u05d5\u05e8\u05d8",
+            "\u05d0\u05d2\u05d5\u05d3\u05d5\u05ea \u05e1\u05e4\u05d5\u05e8\u05d8"
+          ],
+          "totals": 2003
+        },
+        "\u05d4\u05e6\u05e4\u05d5\u05df": {
+          "foas": [
+            "\u05e1\u05e4\u05d5\u05e8\u05d8",
+            "\u05ea\u05e8\u05d1\u05d5\u05ea \u05d5\u05d0\u05d5\u05de\u05e0\u05d5\u05ea",
+            "\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05d7\u05d9\u05e0\u05d5\u05da"
+          ],
+          "totals": 1212
+        },
+        "\u05d7\u05d9\u05e4\u05d4": {
+          "foas": [
+            "\u05d0\u05d2\u05d5\u05d3\u05d5\u05ea \u05e1\u05e4\u05d5\u05e8\u05d8",
+            "\u05e1\u05e4\u05d5\u05e8\u05d8",
+            "\u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9\u05ea"
+          ],
+          "totals": 990
+        },
+        "\u05d9\u05e8\u05d5\u05e9\u05dc\u05d9\u05dd": {
+          "foas": [
+            "\u05d9\u05e9\u05d9\u05d1\u05d5\u05ea \u05d5\u05db\u05d5\u05dc\u05dc\u05d9\u05dd",
+            "\u05d3\u05ea \u05d9\u05d4\u05d5\u05d3\u05d9\u05ea",
+            "\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05d7\u05d9\u05e0\u05d5\u05da"
+          ],
+          "totals": 2029
+        },
+        "\u05ea\u05dc \u05d0\u05d1\u05d9\u05d1": {
+          "foas": [
+            "\u05ea\u05e8\u05d1\u05d5\u05ea \u05d5\u05d0\u05d5\u05de\u05e0\u05d5\u05ea",
+            "\u05d0\u05d9\u05d2\u05d5\u05d3\u05d9\u05dd \u05de\u05e7\u05e6\u05d5\u05e2\u05d9\u05d9\u05dd",
+            "\u05de\u05d7\u05e7\u05e8, \u05de\u05d3\u05e2 \u05d5\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4"
+          ],
+          "totals": 1924
+        }
+      },
+      "foa_stats": {
+        "height": 670,
+        "items": [
+          {
+            "label": "\u05e9\u05d9\u05e8\u05d5\u05ea\u05d9 \u05e8\u05d5\u05d5\u05d7\u05d4",
+            "label_x": 70,
+            "label_y": 70,
+            "num": 2320,
+            "r": 120,
+            "x": 901.5500238322265,
+            "y": 263
+          },
+          {
+            "label": "\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05d7\u05d9\u05e0\u05d5\u05da",
+            "label_x": 599,
+            "label_y": 70,
+            "num": 2219,
+            "r": 117,
+            "x": 793.267984693688,
+            "y": 485
+          },
+          {
+            "label": "\u05d1\u05ea\u05d9 \u05db\u05e0\u05e1\u05ea",
+            "label_x": 87,
+            "label_y": 219.03355326905415,
+            "num": 2111,
+            "r": 114,
+            "x": 661.7355121779066,
+            "y": 218
+          },
+          {
+            "label": "\u05d9\u05e9\u05d9\u05d1\u05d5\u05ea \u05d5\u05db\u05d5\u05dc\u05dc\u05d9\u05dd",
+            "label_x": 599,
+            "label_y": 391.3962614844832,
+            "num": 1904,
+            "r": 108,
+            "x": 558.9736515485855,
+            "y": 426
+          },
+          {
+            "label": "\u05d3\u05ea \u05d9\u05d4\u05d5\u05d3\u05d9\u05ea",
+            "label_x": 70,
+            "label_y": 487.6917575842947,
+            "num": 1580,
+            "r": 99,
+            "x": 440.25639352334804,
+            "y": 244
+          },
+          {
+            "label": "\u05e1\u05e4\u05d5\u05e8\u05d8",
+            "label_x": 598,
+            "label_y": 541.392928114112,
+            "num": 979,
+            "r": 77,
+            "x": 373.1134890607624,
+            "y": 485
+          },
+          {
+            "label": "\u05ea\u05e8\u05d1\u05d5\u05ea \u05d5\u05d0\u05d5\u05de\u05e0\u05d5\u05ea",
+            "label_x": 73,
+            "label_y": 637.6617545836946,
+            "num": 825,
+            "r": 71,
+            "x": 274.08852381308714,
+            "y": 174
+          },
+          {
+            "label": "\u05e4\u05e2\u05d9\u05dc\u05d5\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9\u05ea",
+            "label_x": 349,
+            "label_y": 729.3275716153911,
+            "num": 738,
+            "r": 67,
+            "x": 219.43850736237403,
+            "y": 495
+          },
+          {
+            "label": "\u05d1\u05ea\u05d9 \u05d7\u05d5\u05dc\u05d9\u05dd \u05d5\u05de\u05d5\u05e1\u05d3\u05d5\u05ea \u05e8\u05e4\u05d5\u05d0\u05d9\u05d9\u05dd",
+            "label_x": 70,
+            "label_y": 859.387500959463,
+            "num": 374,
+            "r": 48,
+            "x": 147.1554705921077,
+            "y": 197
+          },
+          {
+            "label": "\u05de\u05d7\u05e7\u05e8, \u05de\u05d3\u05e2 \u05d5\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4",
+            "label_x": 325,
+            "label_y": 877.3951237664279,
+            "num": 305,
+            "r": 43,
+            "x": 111.29046068560785,
+            "y": 443
+          }
+        ],
+        "width": 1024
+      },
+      "total_active_cities": 798,
+      "total_active_foas": 71,
+      "total_active_orgs": 17563,
+      "total_received": 23451286074.46
+    },
+    "doc_id": "reports/ngos-main-page",
+    "key": "ngos-main-page"
+  }
+}

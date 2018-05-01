@@ -7,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BudgetKeyCommonModule } from 'budgetkey-ng2-components';
 import { AppComponent } from './app.component';
+import { AdamkeyModule } from 'adamkey';
+
+window['prefetchedData'] = require('../data/ngos-main-page.json')['value'];
 
 describe('AppComponent', function () {
   let comp: AppComponent;
@@ -17,7 +20,8 @@ describe('AppComponent', function () {
       imports: [
         HttpModule,
         FormsModule,
-        BudgetKeyCommonModule
+        AdamkeyModule,
+        BudgetKeyCommonModule,
       ],
       declarations: [
         AppComponent,
@@ -25,7 +29,7 @@ describe('AppComponent', function () {
       providers: [
       ]
     })
-    .compileComponents();
+    .compileComponents()
   }));
 
   beforeEach(() => {
