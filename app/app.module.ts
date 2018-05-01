@@ -5,15 +5,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { AppComponent }  from './app.component';
+
+import { AdamkeyModule } from 'adamkey';
 import { BudgetKeyCommonModule, THEME_TOKEN as NG_COMPONENTS_THEME_TOKEN } from 'budgetkey-ng2-components';
 
-import { AppComponent }  from './app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    AdamkeyModule,
     BudgetKeyCommonModule,
   ],
   declarations: [

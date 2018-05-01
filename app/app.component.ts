@@ -1,4 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
+
+let map = require('../assets/img/map.svg');
 
 @Component({
   selector: 'my-app',
@@ -90,16 +92,28 @@ import {Component, ViewChild} from '@angular/core';
              *ngIf="active=='flag'">
              <div class="row">
                 <div class="col-md-6">
-                  <div class="district-list">
-                    <div class="district" *ngFor="let di of districts">
+                  <div class="district-list"
+                       (mouseout)="selected = null">
+                    <div class="district" 
+                         *ngFor="let di of districts"
+                         (mouseover)="selected = di.name">
                       <span class="name">מחוז {{ di.name }}</span>
                       <span class="amount">{{ di.totals }} ארגונים פעילים</span>
                       <span class="foas">תחומי פעילות בולטים: {{ di.foas.join(', ') }}</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">world</div>             
+                <div class="col-md-6">
+                  ` + map + `
+                </div>             
              </div>
+        </div>
+        <div class="tab-contents-container"
+             *ngIf="active=='coins'">
+             <budgetkey-chart-adamkey [data]="data.charts[0].chart"></budgetkey-chart-adamkey>
+        </div>
+        <div class="disclaimer">
+          הנתונים מבוססים על שנת הדיווח האחרונה של הארגונים הפעילים ולכן מוצגים לצורך הבנת סדרי הגודל
         </div>
       </budgetkey-container>
   `,
@@ -109,6 +123,7 @@ export class AppComponent {
   private active: string = 'flag';
   private data: any = window['prefetchedData'];
   private districts: any[] = [];
+  private selected: string;
 
   constructor() {
     for (let d of Object.keys(this.data.details.district_totals)) {
