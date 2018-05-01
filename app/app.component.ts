@@ -11,7 +11,7 @@ import {Component, ViewChild} from '@angular/core';
           <h1>אז מה באמת קורה במגזר השלישי!?</h1>
           <input class="input" type="text"/>
           <div class="search-guide">
-            <img src="assets/img/down-left-arrow.png"/>
+            <img src="assets/img/down-left-arrow.svg"/>
             <div class="search-examples">
               <div>חיפושים לדוגמה</div>
               <div class="tags">
@@ -44,7 +44,7 @@ import {Component, ViewChild} from '@angular/core';
           <div class="tab-button" (click)="active='coins'"
                [ngClass]="{active: active=='coins'}"
           >
-            <img class="tab-icon" src="assets/img/icon-flag.svg"/> 
+            <img class="tab-icon" src="assets/img/icon-coins.svg"/> 
             <div class="text">
               בשלוש השנים האחרונות דווחו 
               <strong>{{ data.details.total_received.toLocaleString('en-US', {style: 'decimal', maximumFractionDigits: 2}) }} ₪</strong>
@@ -52,9 +52,9 @@ import {Component, ViewChild} from '@angular/core';
             </div>
           </div>        
         </div>
-        <div class="tab-contents-container">
-          <div *ngIf="active=='hadash'"
-               class="bubble-chart">
+        <div class="tab-contents-container"
+             *ngIf="active=='hadash'">
+          <div class="bubble-chart">
             <svg 
                 [attr.width]="data.details.foa_stats.width + 'px'"
                 [attr.height]="data.details.foa_stats.height + 'px'">
@@ -76,23 +76,49 @@ import {Component, ViewChild} from '@angular/core';
             <div *ngFor="let item of data.details.foa_stats.items"
               class="circles-label"
               [style.right]="(data.details.foa_stats.width - item.label_y) + 'px'"
-              [style.top]="item.label_x + 'px'"
-            >
-              <strong>{{ item.label }}</strong><br/>
+              [style.top]="item.label_x + 'px'">
+              <a href="bla"><strong>{{ item.label }}</strong></a><br/>
               <span>ארגונים: </span>
               <span class="count">{{ item.num }}</span>
             </div>
           </div>
+          <div>
+            <a class="btn btn-primary btn-lg">חפשו ארגונים פעילים בתחומים נוספים</a>
+          </div>
+        </div>
+        <div class="tab-contents-container"
+             *ngIf="active=='flag'">
+             <div class="row">
+                <div class="col-md-6">
+                  <div class="district-list">
+                    <div class="district" *ngFor="let di of districts">
+                      <span class="name">מחוז {{ di.name }}</span>
+                      <span class="amount">{{ di.totals }} ארגונים פעילים</span>
+                      <span class="foas">תחומי פעילות בולטים: {{ di.foas.join(', ') }}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">world</div>             
+             </div>
         </div>
       </budgetkey-container>
   `,
 })
 export class AppComponent {
 
-  private active: string = 'hadash';
+  private active: string = 'flag';
   private data: any = window['prefetchedData'];
+  private districts: any[] = [];
 
   constructor() {
+    for (let d of Object.keys(this.data.details.district_totals)) {
+      console.log(d);
+      let di = this.data.details.district_totals[d];
+      di.name = d;
+      this.districts.push(di);
+    }
+    this.districts.sort((a, b) => b.totals - a.totals);
+    console.log(this.districts);
   }
 
   path(item: any) {
