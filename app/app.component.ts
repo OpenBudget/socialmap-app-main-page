@@ -9,9 +9,9 @@ let map = require('./map.svg.html');
         <div class='background-graphic'>
           <img src="assets/img/bg1.jpg" 
                [ngClass]="{displayed: cur_image==0}"/>
-          <img src="assets/img/bg2.jpg" 
+          <img [src]="img_src_1" 
                [ngClass]="{displayed: cur_image==1}"/>
-          <img src="assets/img/bg3.jpg" 
+          <img [src]="img_src_2" 
                [ngClass]="{displayed: cur_image==2}"/>>
         </div>
         <div class="main-text">
@@ -130,6 +130,8 @@ export class AppComponent {
   private districts: any[] = [];
   private selected: string;
   private cur_image = 0;
+  private img_src_1 = '';
+  private img_src_2 = '';
 
   constructor() {
     for (let d of Object.keys(this.data.details.district_totals)) {
@@ -155,6 +157,10 @@ export class AppComponent {
     window.setInterval(() => {
       this.cur_image += 1;
       this.cur_image %= 3;
+    }, 7000);
+    window.setTimeout(() => {
+      this.img_src_1 = 'assets/img/bg2.jpg';
+      this.img_src_2 = 'assets/img/bg3.jpg';
     }, 3000);
   }
 }
