@@ -12,13 +12,25 @@ budgetkey-header {
 
 .app {
   .background-graphic {
+    height: 100vh;
+    position: relative;
+
     img {
       width: 100%;
       height: 100vh;
       object-fit: cover;
-      position: relative;
+      position: absolute;
+      // top: 0;
       top: -65px;
       z-index: -1;
+
+      opacity: 0;
+      transition-property: opacity;
+      transition-duration: 500ms;
+
+      &.displayed {
+        opacity: 1;
+      }
     }
   }
 
@@ -232,14 +244,18 @@ budgetkey-header {
         line-height: 15px;
       }
     }
-  }
 
-  .district-path {
-    fill: #E7FADE;
-
-    &.active {
-      fill: #73DCD5;
+    budgetkey-chart-adamkey {
+      width: 80%;
     }
+
+    .district-path {
+      fill: #E7FADE;
+  
+      &.active {
+        fill: #73DCD5;
+      }
+    }  
   }
 
   .disclaimer {

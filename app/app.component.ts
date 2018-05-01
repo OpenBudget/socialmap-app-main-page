@@ -7,7 +7,12 @@ let map = require('./map.svg.html');
   template: ` 
       <budgetkey-container [showHeader]="true" [showSearchBar]="false">
         <div class='background-graphic'>
-          <img src="assets/img/bg1.jpg"/>
+          <img src="assets/img/bg1.jpg" 
+               [ngClass]="{displayed: cur_image==0}"/>
+          <img src="assets/img/bg2.jpg" 
+               [ngClass]="{displayed: cur_image==1}"/>
+          <img src="assets/img/bg3.jpg" 
+               [ngClass]="{displayed: cur_image==2}"/>>
         </div>
         <div class="main-text">
           <h1>אז מה באמת קורה במגזר השלישי!?</h1>
@@ -120,10 +125,11 @@ let map = require('./map.svg.html');
 })
 export class AppComponent {
 
-  private active: string = 'flag';
+  private active: string = 'hadash';
   private data: any = window['prefetchedData'];
   private districts: any[] = [];
   private selected: string;
+  private cur_image = 0;
 
   constructor() {
     for (let d of Object.keys(this.data.details.district_totals)) {
@@ -142,5 +148,13 @@ export class AppComponent {
     L${item.label_y + 45},${item.label_x + 20}
     L${w - item.x},${item.y}
 `;
+  }
+
+  ngOnInit() {
+    console.log('initninitnitnit');
+    window.setInterval(() => {
+      this.cur_image += 1;
+      this.cur_image %= 3;
+    }, 3000);
   }
 }
