@@ -13,10 +13,16 @@ let map = require('./map.svg.html');
                [ngClass]="{displayed: cur_image==1}"/>
           <img [src]="img_src_2" 
                [ngClass]="{displayed: cur_image==2}"/>>
+          <p class="image-credit" 
+               [ngClass]="{displayed: cur_image>=0}">
+               תמונה לדוגמה<br/>
+               קרדיט: ארגון לדוגמה
+          </p>
+
         </div>
         <div class="main-text">
           <h1>אז מה באמת קורה במגזר השלישי!?</h1>
-          <input class="input" type="text"/>
+          <budgetkey-search-bar [searchTypes]="searchTypes" [searchTerm]="''"></budgetkey-search-bar>
           <div class="search-guide">
             <img src="assets/img/down-left-arrow.svg"/>
             <div class="search-examples">
@@ -102,9 +108,13 @@ let map = require('./map.svg.html');
                     <div class="district" 
                          *ngFor="let di of districts"
                          (mouseover)="selected = di.name">
-                      <span class="name">מחוז {{ di.name }}</span>
-                      <span class="amount">{{ di.totals }} ארגונים פעילים</span>
-                      <span class="foas">תחומי פעילות בולטים: {{ di.foas.join(', ') }}</span>
+                      <div class="row">
+                        <span class="name col-xs-6">מחוז {{ di.name }}</span>
+                        <span class="amount col-xs-6">{{ di.totals }} ארגונים פעילים</span>
+                      </div>
+                      <div class="row">
+                        <span class="foas col-xs-12">תחומי פעילות בולטים: {{ di.foas.join(', ') }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -132,6 +142,20 @@ export class AppComponent {
   private cur_image = 0;
   private img_src_1 = '';
   private img_src_2 = '';
+  private searchTypes = [
+    {
+      name: 'עמותות וחל״צ',
+      id: 'entities',
+    },
+    {
+      name: 'מחוזות',
+      id: 'reports',
+    },
+    {
+      name: 'תחומי פעילות',
+      id: 'reports',
+    }
+  ];
 
   constructor() {
     for (let d of Object.keys(this.data.details.district_totals)) {
@@ -153,7 +177,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    console.log('initninitnitnit');
     window.setInterval(() => {
       this.cur_image += 1;
       this.cur_image %= 3;
