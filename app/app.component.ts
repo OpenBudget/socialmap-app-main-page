@@ -22,7 +22,10 @@ let map = require('./map.svg.html');
         </div>
         <div class="main-text">
           <h1>אז מה באמת קורה במגזר השלישי!?</h1>
-          <budgetkey-search-bar [searchTypes]="searchTypes" [searchTerm]="''"></budgetkey-search-bar>
+          <budgetkey-search-bar [searchTerm]="''"
+                                [instantSearch]="false"
+                                (navigate)="onNavigate($event)"
+          ></budgetkey-search-bar>
           <div class="search-guide">
             <img src="assets/img/down-left-arrow.svg"/>
             <div class="search-examples">
@@ -90,13 +93,18 @@ let map = require('./map.svg.html');
               class="circles-label"
               [style.right]="(data.details.foa_stats.width - item.label_y) + 'px'"
               [style.top]="item.label_x + 'px'">
-              <a href="bla"><strong>{{ item.label }}</strong></a><br/>
+              <a [href]="'https://next.obudget.org/i/reports/ngo-activity-report/' + item.label + '?theme=socialmap'">
+                <strong>{{ item.label }}</strong>
+              </a><br/>
               <span>ארגונים: </span>
               <span class="count">{{ item.num }}</span>
             </div>
           </div>
           <div>
-            <a class="btn btn-primary btn-lg">חפשו ארגונים פעילים בתחומים נוספים</a>
+            <a class="btn btn-primary btn-lg"
+              [href]="'https://next.obudget.org/s/?theme=socialmap&dd=reports&q=ארגונים+הפעילים+בתחום'">
+              חפשו ארגונים פעילים בתחומים נוספים
+            </a>
           </div>
         </div>
         <div class="tab-contents-container"
@@ -109,7 +117,11 @@ let map = require('./map.svg.html');
                          *ngFor="let di of districts"
                          (mouseover)="selected = di.name">
                       <div class="row">
-                        <span class="name col-xs-6">מחוז {{ di.name }}</span>
+                        <span class="name col-xs-6">
+                          <a [href]="'https://next.obudget.org/i/reports/ngo-district-report/' + di.name + '?theme=socialmap'">
+                            מחוז {{ di.name }}
+                          </a>
+                        </span>
                         <span class="amount col-xs-6">{{ di.totals }} ארגונים פעילים</span>
                       </div>
                       <div class="row">
@@ -185,5 +197,9 @@ export class AppComponent {
       this.img_src_1 = 'assets/img/bg2.jpg';
       this.img_src_2 = 'assets/img/bg3.jpg';
     }, 3000);
+  }
+
+  onNavigate(url: string) {
+    window.location.href = url;
   }
 }

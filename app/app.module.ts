@@ -24,11 +24,7 @@ import { BudgetKeyCommonModule, THEME_TOKEN as NG_COMPONENTS_THEME_TOKEN } from 
   ],
   providers: [
     {
-      provide: NG_COMPONENTS_THEME_TOKEN, useValue: {
-        'themeId': 'socialmap',
-        'siteName': 'המפה החברתית',
-        'searchPlaceholder': 'מפה מפה מפה מפה מפה מפה מפה מפה מפה מפה מפה אני מפה'
-      }
+      provide: NG_COMPONENTS_THEME_TOKEN, useValue: window['BUDGETKEY_NG2_COMPONENTS_THEME']
     }
   ],
   bootstrap: [ AppComponent ]
