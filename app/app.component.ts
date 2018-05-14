@@ -21,7 +21,7 @@ let map = require('./map.svg.html');
 
         </div>
         <div class="main-text">
-          <h1>אז מה באמת קורה במגזר השלישי!?</h1>
+          <h1>אז מה קורה במגזר השלישי!?</h1>
           <budgetkey-search-bar [searchTerm]="''"
                                 [instantSearch]="false"
                                 (navigate)="onNavigate($event)"
@@ -39,12 +39,17 @@ let map = require('./map.svg.html');
           </div>
         </div>
         <div class="tab-buttons">
+          <div class="subtitle">
+            <strong>״המפה החברתית״</strong>
+            הינו מיזם חדשני ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+            על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם          
+          </div>
           <div class="tab-button" (click)="active='flag'"
                [ngClass]="{active: active=='flag'}"
           >
             <img class="tab-icon" src="assets/img/icon-flag.svg"/> 
             <div class="text">
-              ארגונים אלו מדווחים על פעילות ב-<strong>{{ data.details.total_active_cities }}</strong> ישובים בשלוש השנים האחרונות 
+            ארגוני המגזר השלישי מדווחים על פעילות ב-<strong>{{ data.details.total_active_cities }}</strong> ישובים בשלוש השנים האחרונות 
             </div>
           </div>
           <div class="tab-button" (click)="active='hadash'"
@@ -76,24 +81,25 @@ let map = require('./map.svg.html');
                 [attr.height]="data.details.foa_stats.height + 'px'">
                 <g *ngFor="let item of data.details.foa_stats.items">
                   <circle
-                    [attr.cx]="item.label_y + 15"
-                    [attr.cy]="item.label_x + 20"
+                    [attr.cx]="item.label_x + 15"
+                    [attr.cy]="item.label_y + 20"
                     r="3"
                   ></circle>
                   <path 
                     [attr.d]="path(item)"></path>
                   <circle class="main"
-                    [attr.cx]="data.details.foa_stats.width - item.x"
+                    [attr.cx]="item.x"
                     [attr.cy]="item.y"
                     [attr.r]="item.r"
+                    (click)="onNavigate(activityReport(item.label))"
                   ></circle>
                 </g>
             </svg>
             <div *ngFor="let item of data.details.foa_stats.items"
               class="circles-label"
-              [style.right]="(data.details.foa_stats.width - item.label_y) + 'px'"
-              [style.top]="item.label_x + 'px'">
-              <a [href]="'https://next.obudget.org/i/reports/ngo-activity-report/' + item.label + '?theme=socialmap'">
+              [style.left]="(item.label_x - 70) + 'px'"
+              [style.top]="item.label_y + 'px'">
+              <a [href]="activityReport(item.label)">
                 <strong>{{ item.label }}</strong>
               </a><br/>
               <span>ארגונים: </span>
@@ -182,9 +188,9 @@ export class AppComponent {
 
   path(item: any) {
     let w = this.data.details.foa_stats.width;
-    return `M${item.label_y + 15},${item.label_x + 20} 
-    L${item.label_y + 45},${item.label_x + 20}
-    L${w - item.x},${item.y}
+    return `M${item.label_x + 15},${item.label_y + 20} 
+    L${item.label_x + 45},${item.label_y + 20}
+    L${item.x},${item.y}
 `;
   }
 
@@ -197,6 +203,11 @@ export class AppComponent {
       this.img_src_1 = 'assets/img/bg2.jpg';
       this.img_src_2 = 'assets/img/bg3.jpg';
     }, 3000);
+  }
+
+  activityReport(name: string) {
+    return 'https://next.obudget.org/i/reports/ngo-activity-report/' +
+      name + '?theme=socialmap';
   }
 
   onNavigate(url: string) {

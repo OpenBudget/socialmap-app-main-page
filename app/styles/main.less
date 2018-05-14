@@ -96,7 +96,7 @@ budgetkey-header {
           margin-top: 2px;
           .tag {
             border-radius: 5px;	
-            background-color: #F9FFF4;	
+            background-color: #f2effa;	
             box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
             color: #4A4A4A;	
             font-family: "Abraham TRIAL";	
@@ -117,6 +117,16 @@ budgetkey-header {
     flex-flow: row;
     justify-content: center;
     
+    .subtitle {
+        position: absolute;
+        bottom: 285px;
+        display: block;      
+        font-family: "Abraham TRIAL";	
+        font-size: 18px;
+        color: #fff;
+        max-width: 800px;
+    }
+
     .tab-button {
 
       height: 257px;	
@@ -203,6 +213,7 @@ budgetkey-header {
       circle.main {
         fill: #F57445;
         stroke: none;
+        cursor: pointer;
       }
 
       path {
@@ -213,6 +224,11 @@ budgetkey-header {
       .circles-label {
         position: absolute;
         white-space: nowrap;
+
+        .count {
+          color: #734DE5;
+          font-size: 16px;
+        }
       }
 
     }
