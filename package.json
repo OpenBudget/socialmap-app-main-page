@@ -39,7 +39,7 @@
     "@types/node": "^6.0.46",
     "@types/node-fetch": "^1.6.7",
     "@types/selenium-webdriver": "^2.53.33",
-    "adamkey": "0.0.1",
+    "adamkey": "0.0.2",
     "angular-in-memory-web-api": "~0.1.15",
     "awesome-typescript-loader": "^3.2.1",
     "bluebird": "^3.5.1",
