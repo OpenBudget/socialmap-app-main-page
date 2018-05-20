@@ -49,7 +49,10 @@ let map = require('./map.svg.html');
           >
             <img class="tab-icon" src="assets/img/icon-flag.svg"/> 
             <div class="text">
-            ארגוני המגזר השלישי מדווחים על פעילות ב-<strong>{{ data.details.total_active_cities }}</strong> ישובים בשלוש השנים האחרונות 
+            ארגוני המגזר השלישי מדווחים על
+            <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
+            >פעילות</span>
+             ב-<strong>{{ data.details.total_active_cities }}</strong> ישובים בשלוש השנים האחרונות 
             </div>
           </div>
           <div class="tab-button" (click)="active='hadash'"
@@ -58,7 +61,10 @@ let map = require('./map.svg.html');
             <img class="tab-icon" src="assets/img/icon-hadash.svg"/> 
             <div class="text">
               <strong>{{ data.details.total_active_orgs }}</strong>
-               ארגונים פעילים בישראל ב-{{ data.details.total_active_foas }}
+               ארגונים 
+               <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
+               >פעילים</span>   
+                בישראל ב-{{ data.details.total_active_foas }}
                תחומים בשלוש השנים האחרונות
             </div>
           </div>
@@ -152,7 +158,10 @@ let map = require('./map.svg.html');
              <budgetkey-chart-adamkey [data]="data.charts[0].chart"></budgetkey-chart-adamkey>
         </div>
         <div class="disclaimer">
-          הנתונים מבוססים על שנת הדיווח האחרונה של הארגונים הפעילים ולכן מוצגים לצורך הבנת סדרי הגודל
+          הנתונים מבוססים על שנת הדיווח האחרונה של 
+          <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
+          >הארגונים הפעילים</span>   
+          ולכן מוצגים לצורך הבנת סדרי הגודל
         </div>
       </budgetkey-container>
   `,
