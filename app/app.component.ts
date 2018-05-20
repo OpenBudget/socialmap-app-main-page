@@ -131,7 +131,13 @@ let map = require('./map.svg.html');
                         <span class="amount col-xs-6">{{ di.totals }} ארגונים פעילים</span>
                       </div>
                       <div class="row">
-                        <span class="foas col-xs-12">תחומי פעילות בולטים: {{ di.foas.join(', ') }}</span>
+                        <span class="foas col-xs-12">
+                          תחומי פעילות 
+                          <span [bkTooltip]="'תחומים בהם דווחה פעילות באזור בשיעור גבוה יחסית לאזורים האחרים'">
+                            בולטים
+                          </span>
+                          : {{ di.foas.join(', ') }}
+                        </span>
                       </div>
                     </div>
                   </div>
