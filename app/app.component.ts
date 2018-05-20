@@ -68,7 +68,7 @@ let map = require('./map.svg.html');
             <img class="tab-icon" src="assets/img/icon-coins.svg"/> 
             <div class="text">
               בשלוש השנים האחרונות דווחו 
-              <strong>{{ data.details.total_received.toLocaleString('en-US', {style: 'decimal', maximumFractionDigits: 2}) }} ₪</strong>
+              <strong>{{ data.details.total_received.toLocaleString('en-US', {style: 'decimal', maximumFractionDigits: 0}) }} ₪</strong>
                העברות מכספי ממשלה לארגונים            
             </div>
           </div>        
