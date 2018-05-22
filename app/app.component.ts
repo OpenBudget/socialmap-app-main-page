@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 
 let map = require('./map.svg.html');
 
@@ -26,7 +26,7 @@ let map = require('./map.svg.html');
                                 [instantSearch]="false"
                                 (navigate)="onNavigate($event)"
           ></budgetkey-search-bar>
-          <div class="search-guide">
+          <div class="search-guide" #searchGuide>
             <img src="assets/img/down-left-arrow.svg"/>
             <div class="search-examples">
               <div>חיפושים לדוגמה</div>
@@ -38,8 +38,9 @@ let map = require('./map.svg.html');
             </div>
           </div>
         </div>
-        <div class="tab-buttons">
-          <div class="subtitle">
+        <div class="tab-buttons"
+            [style.margin-top]="spacer + 'px'">
+          <div class="subtitle"  #tabButtons>
             <strong>״המפה החברתית״</strong>
             הינו מיזם חדשני ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
             על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם          
@@ -79,6 +80,7 @@ let map = require('./map.svg.html');
             </div>
           </div>        
         </div>
+        <div [style.height]="(spacer + 20) + 'px'"></div>
         <div class="tab-contents-container"
              *ngIf="active=='hadash'">
           <div class="bubble-chart">
@@ -166,12 +168,16 @@ let map = require('./map.svg.html');
       </budgetkey-container>
   `,
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
+
+  @ViewChild('tabButtons') tabButtons: ElementRef;
+  @ViewChild('searchGuide') searchGuide: ElementRef;
 
   private active: string = 'hadash';
   private data: any = window['prefetchedData'];
   private districts: any[] = [];
   private selected: string;
+  private spacer = 0;
   private cur_image = 0;
   private img_src_1 = '';
   private img_src_2 = '';
@@ -218,6 +224,18 @@ export class AppComponent {
       this.img_src_1 = 'assets/img/bg2.jpg';
       this.img_src_2 = 'assets/img/bg3.jpg';
     }, 3000);
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+    let guideBottom = this.searchGuide.nativeElement.getBoundingClientRect().bottom;
+    let subtitleTop = this.tabButtons.nativeElement.getBoundingClientRect().top;
+    if (guideBottom > subtitleTop) {
+      window.setTimeout(() => {
+        this.spacer = guideBottom - subtitleTop + 20;
+      }, 0);
+    }
+    console.log(guideBottom, subtitleTop, this.spacer);
   }
 
   activityReport(name: string) {
