@@ -21,7 +21,7 @@ let map = require('./map.svg.html');
 
         </div>
         <div class="main-text">
-          <h1>אז מה קורה במגזר השלישי!?</h1>
+          <h1>אז מה קורה במגזר השלישי?!</h1>
           <budgetkey-search-bar [searchTerm]="''"
                                 [instantSearch]="false"
                                 (navigate)="onNavigate($event)"
