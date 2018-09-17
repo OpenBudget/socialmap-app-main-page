@@ -156,4 +156,9 @@ export class AppComponent implements AfterViewInit{
     }
     console.log(guideBottom, subtitleTop, this.spacer);
   }
+
+  onNavigate(url: string) {
+    window.location.href = url;
+  }
+
 }
