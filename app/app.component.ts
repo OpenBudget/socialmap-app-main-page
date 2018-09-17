@@ -1,7 +1,5 @@
 import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 
-let map = require('./map.svg.html');
-
 @Component({
   selector: 'my-app',
   template: ` 
@@ -37,6 +35,11 @@ let map = require('./map.svg.html');
               </div>
             </div>
           </div>
+          <div class="subtitle">
+            <strong>״המפה החברתית״</strong>
+            הינו מיזם חדשני ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+            על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם          
+          </div>
         </div>
         <div class="tab-buttons"
             [style.margin-top]="spacer + 'px'">
@@ -48,116 +51,45 @@ let map = require('./map.svg.html');
           <div class="tab-button" (click)="active='flag'"
                [ngClass]="{active: active=='flag'}"
           >
-            <img class="tab-icon" src="assets/img/icon-flag.svg"/> 
-            <div class="text">
-            ארגוני המגזר השלישי מדווחים על
-            <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
-            >פעילות</span>
-             ב-<strong>{{ data.details.total_active_cities }}</strong> ישובים בשלוש השנים האחרונות 
-            </div>
+            <flag-anchor [data]='data'></flag-anchor>
           </div>
           <div class="tab-button" (click)="active='hadash'"
                [ngClass]="{active: active=='hadash'}"
           >
-            <img class="tab-icon" src="assets/img/icon-hadash.svg"/> 
-            <div class="text">
-              <strong>{{ data.details.total_active_orgs }}</strong>
-               ארגונים 
-               <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
-               >פעילים</span>   
-                בישראל ב-{{ data.details.total_active_foas }}
-               תחומים בשלוש השנים האחרונות
-            </div>
+            <hadash-anchor [data]='data'></hadash-anchor>
           </div>
           <div class="tab-button" (click)="active='coins'"
                [ngClass]="{active: active=='coins'}"
           >
-            <img class="tab-icon" src="assets/img/icon-coins.svg"/> 
-            <div class="text">
-              בשלוש השנים האחרונות דווחו 
-              <strong>{{ data.details.total_received.toLocaleString('en-US', {style: 'decimal', maximumFractionDigits: 0}) }} ₪</strong>
-               העברות מכספי ממשלה לארגונים            
-            </div>
+            <coins-anchor [data]='data'></coins-anchor>
           </div>        
         </div>
         <div [style.height]="(spacer + 20) + 'px'"></div>
         <div class="tab-contents-container"
              *ngIf="active=='hadash'">
-          <div class="bubble-chart">
-            <svg 
-                [attr.width]="data.details.foa_stats.width + 'px'"
-                [attr.height]="data.details.foa_stats.height + 'px'">
-                <g *ngFor="let item of data.details.foa_stats.items">
-                  <circle
-                    [attr.cx]="item.label_x + 15"
-                    [attr.cy]="item.label_y + 20"
-                    r="3"
-                  ></circle>
-                  <path 
-                    [attr.d]="path(item)"></path>
-                  <circle class="main"
-                    [attr.cx]="item.x"
-                    [attr.cy]="item.y"
-                    [attr.r]="item.r"
-                    (click)="onNavigate(activityReport(item.label))"
-                  ></circle>
-                </g>
-            </svg>
-            <div *ngFor="let item of data.details.foa_stats.items"
-              class="circles-label"
-              [style.left]="(item.label_x - 70) + 'px'"
-              [style.top]="item.label_y + 'px'">
-              <a [href]="activityReport(item.label)">
-                <strong>{{ item.label }}</strong>
-              </a><br/>
-              <span>ארגונים: </span>
-              <span class="count">{{ item.num }}</span>
-            </div>
-          </div>
-          <div>
-            <a class="btn btn-primary btn-lg"
-              [href]="'https://next.obudget.org/s/?theme=socialmap&dd=reports&q=ארגונים+הפעילים+בתחום'">
-              חפשו ארגונים פעילים בתחומים נוספים
-            </a>
-          </div>
+             <hadash-chart [data]='data'></hadash-chart>
         </div>
         <div class="tab-contents-container"
              *ngIf="active=='flag'">
-             <div class="row">
-                <div class="col-md-6">
-                  <div class="district-list"
-                       (mouseout)="selected = null">
-                    <div class="district" 
-                         *ngFor="let di of districts"
-                         (mouseover)="selected = di.name">
-                      <div class="row">
-                        <span class="name col-xs-6">
-                          <a [href]="'https://next.obudget.org/i/reports/ngo-district-report/' + di.name + '?theme=socialmap'">
-                            מחוז {{ di.name }}
-                          </a>
-                        </span>
-                        <span class="amount col-xs-6">{{ di.totals }} ארגונים פעילים</span>
-                      </div>
-                      <div class="row">
-                        <span class="foas col-xs-12">
-                          תחומי פעילות 
-                          <span [bkTooltip]="'תחומים בהם דווחה פעילות באזור בשיעור גבוה יחסית לאזורים האחרים'">
-                            בולטים
-                          </span>
-                          : {{ di.foas.join(', ') }}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  ` + map + `
-                </div>             
-             </div>
+            <flag-chart [data]='data'></flag-chart>
         </div>
         <div class="tab-contents-container"
              *ngIf="active=='coins'">
-             <budgetkey-chart-adamkey [data]="data.charts[0].chart"></budgetkey-chart-adamkey>
+             <coins-chart [data]='data'></coins-chart>
+        </div>
+        <div class='mobile-tabs'>
+          <mobile-tab>
+            <hadash-anchor class='anchor' [data]='data'></hadash-anchor>
+            <hadash-chart-simple [data]='data'></hadash-chart-simple>
+          </mobile-tab>
+          <mobile-tab>
+            <coins-anchor class='anchor' [data]='data'></coins-anchor>
+            <coins-chart-simple [data]='data'></coins-chart-simple>
+          </mobile-tab>
+          <mobile-tab>
+            <flag-anchor class='anchor' [data]='data'></flag-anchor>
+            <flag-chart [data]='data'></flag-chart>
+          </mobile-tab>
         </div>
         <div class="disclaimer">
           הנתונים מבוססים על שנת הדיווח האחרונה של 
@@ -165,6 +97,8 @@ let map = require('./map.svg.html');
           >הארגונים הפעילים</span>   
           ולכן מוצגים לצורך הבנת סדרי הגודל
         </div>
+
+
       </budgetkey-container>
   `,
 })
@@ -197,23 +131,8 @@ export class AppComponent implements AfterViewInit{
   ];
 
   constructor() {
-    for (let d of Object.keys(this.data.details.district_totals)) {
-      console.log(d);
-      let di = this.data.details.district_totals[d];
-      di.name = d;
-      this.districts.push(di);
-    }
-    this.districts.sort((a, b) => b.totals - a.totals);
-    console.log(this.districts);
   }
 
-  path(item: any) {
-    let w = this.data.details.foa_stats.width;
-    return `M${item.label_x + 15},${item.label_y + 20} 
-    L${item.label_x + 45},${item.label_y + 20}
-    L${item.x},${item.y}
-`;
-  }
 
   ngOnInit() {
     window.setInterval(() => {
@@ -236,14 +155,5 @@ export class AppComponent implements AfterViewInit{
       }, 0);
     }
     console.log(guideBottom, subtitleTop, this.spacer);
-  }
-
-  activityReport(name: string) {
-    return 'https://next.obudget.org/i/reports/ngo-activity-report/' +
-      name + '?theme=socialmap';
-  }
-
-  onNavigate(url: string) {
-    window.location.href = url;
   }
 }

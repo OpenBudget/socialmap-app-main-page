@@ -1,6 +1,5 @@
 import 'karma-test-shim';
 
-import { By } from '@angular/platform-browser';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpModule } from '@angular/http';
@@ -8,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BudgetKeyCommonModule } from 'budgetkey-ng2-components';
 import { AppComponent } from './app.component';
 import { AdamkeyModule } from 'adamkey';
+import { CoinsAnchor, HadashAnchor, FlagAnchor, FlagChart, HadashChart, CoinsChart, MobileTab, CoinsChartSimple, HadashChartSimple } from './components';
 
 window['prefetchedData'] = require('../data/ngos-main-page.json')['value'];
 
@@ -25,6 +25,15 @@ describe('AppComponent', function () {
       ],
       declarations: [
         AppComponent,
+        FlagAnchor,
+        HadashAnchor,
+        CoinsAnchor,
+        FlagChart,
+        HadashChart,
+        HadashChartSimple,
+        CoinsChart,
+        CoinsChartSimple,        
+        MobileTab,
       ],
       providers: [
       ]
