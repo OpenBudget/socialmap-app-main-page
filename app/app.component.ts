@@ -12,9 +12,20 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
           <img [src]="img_src_2" 
                [ngClass]="{displayed: cur_image==2}"/>>
           <p class="image-credit" 
-               [ngClass]="{displayed: cur_image>=0}">
-               תמונה לדוגמה<br/>
-               קרדיט: ארגון לדוגמה
+               [ngClass]="{displayed: cur_image==0}">
+               בקורס מכונאות אופניים.<br/>
+               המכללה - בית ספר חברתי למען נשים חוזרות למעגל העבודה<br/>
+               צילום: איריס שטרן לוי
+          </p>
+          <p class="image-credit" 
+               [ngClass]="{displayed: cur_image==1}">
+               מחאת האימוץ, 2017.<br/>
+               צילום: האגודה למען הלהט"ב
+          </p>
+          <p class="image-credit" 
+               [ngClass]="{displayed: cur_image==2}">
+               מצעד האקלים 2018.<br/>
+               צילום: עמותת חיים וסביבה
           </p>
 
         </div>

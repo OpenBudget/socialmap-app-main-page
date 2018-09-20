@@ -41,7 +41,7 @@ body {
     }
 
     p {
-      display: block;
+      display: none;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -51,7 +51,14 @@ body {
       letter-spacing: 0.3px;
       color: #fff;
       margin: 13px 27px;
+      text-align: left;
+
+      &.displayed {
+        display: block;
+      }
+  
     }
+
   }
 
   .main-text {
