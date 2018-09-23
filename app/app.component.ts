@@ -31,7 +31,6 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
         <div class="main-text">
           <h1>אז מה קורה במגזר השלישי?!</h1>
           <budgetkey-search-bar [searchTerm]="''"
-                                [instantSearch]="false"
                                 (navigate)="onNavigate($event)"
           ></budgetkey-search-bar>
           <div class="search-guide" #searchGuide>
@@ -102,9 +101,14 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
           </mobile-tab>
         </div>
         <div class="disclaimer">
-          הנתונים מבוססים על שנת הדיווח האחרונה של 
-          <span [bkTooltip]="'ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות'"
-          >הארגונים הפעילים</span>   
+          הנתונים מבוססים על שנת הדיווח האחרונה<br/>
+          של
+          <span class='bk-tooltip-anchor'
+          >הארגונים הפעילים
+            <span class='bk-tooltip'>
+            ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות
+            </span>
+          </span>    
           ולכן מוצגים לצורך הבנת סדרי הגודל
         </div>
 
