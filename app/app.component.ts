@@ -27,7 +27,6 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
                מצעד האקלים 2018.<br/>
                צילום: עמותת חיים וסביבה
           </p>
-
         </div>
         <div class="main-text">
           <h1>אז מה קורה במגזר השלישי?!</h1>
