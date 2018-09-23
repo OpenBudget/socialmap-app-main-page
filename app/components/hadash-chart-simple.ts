@@ -6,7 +6,11 @@ import {Component, Input} from '@angular/core';
   <div class='tab-container'>
     <ng-container *ngFor='let item of data.details.foa_stats.items'>
       <div class='item'>
-        <span class='foa'>{{item.label}}</span>
+        <span class='foa'>
+          <a [href]='"https://next.obudget.org/i/reports/ngo-activity-report/" + item.label + "?theme=socialmap"'>
+            {{item.label}}
+          </a>
+        </span>
         <div class='amount-container'>
           <span class='amount' [style.width]='(100 * item.num / max) + "%"'>{{item.num.toLocaleString()}}</span>
         </div>
@@ -40,10 +44,17 @@ import {Component, Input} from '@angular/core';
 
   .more {
     margin-top: 30px;
+
+    a {
+      background-color: #5A32D1;
+    }
   }
   
   .foa {
-    color: #5A32D1;	font-family: "Abraham TRIAL";	font-size: 14px;
+    color: #5A32D1;	
+    font-family: "Abraham TRIAL";	
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .amount-container {
