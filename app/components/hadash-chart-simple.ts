@@ -22,7 +22,7 @@ import {Component, Input} from '@angular/core';
     </ng-container>
     <div class='more'>
       <a class="btn btn-primary btn-lg"
-        [href]="'https://next.obudget.org/s/?theme=socialmap&dd=reports&q=ארגונים+הפעילים+בתחום'">
+        [href]="'https://next.obudget.org/s/?theme=socialmap&dd=field-of-activity-reports&q=ארגונים+הפעילים+בתחום'">
         חפשו ארגונים פעילים בתחומים נוספים
       </a>
     </div>

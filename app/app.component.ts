@@ -101,8 +101,7 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
           </mobile-tab>
         </div>
         <div class="disclaimer">
-          הנתונים מבוססים על שנת הדיווח האחרונה<br/>
-          של
+          הנתונים מבוססים על שנת הדיווח האחרונה של
           <span class='bk-tooltip-anchor'
           >הארגונים הפעילים
             <span class='bk-tooltip'>
