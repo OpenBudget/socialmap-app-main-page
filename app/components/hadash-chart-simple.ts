@@ -44,14 +44,14 @@ import {Component, Input} from '@angular/core';
 
   .more {
     margin-top: 30px;
+  }
 
-    a {
-      background-color: #5A32D1;
-    }
+  .more a {
+    background-color: #734DE5;
   }
   
-  .foa {
-    color: #5A32D1;	
+  .foa a {
+    color: #734DE5;
     font-family: "Abraham TRIAL";	
     font-size: 14px;
     font-weight: bold;
