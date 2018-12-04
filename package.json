@@ -13,7 +13,7 @@
     "lint": "tslint ./app/**/*.ts ./e2e/**/*.ts -t verbose",
     "test": "gulp && karma start karma.conf.js --single-run",
     "test-watch": "gulp && karma start karma.conf.js",
-    "dist": "gulp && webpack --hide-modules",
+    "dist": "gulp && webpack --hide-modules --optimize-minimize",
     "dist-serve": "gulp && webpack --hide-modules --watch & DISABLE_CACHE=true npm start"
   },
   "keywords": [],
