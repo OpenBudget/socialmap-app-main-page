@@ -3,7 +3,7 @@ import {Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 @Component({
   selector: 'my-app',
   template: ` 
-      <budgetkey-container [showHeader]="true" [showSearchBar]="false">
+      <budgetkey-container [showHeader]="true" [showSearchBar]="false" [helpWidget]="false">
         <div class='background-graphic'>
           <img src="assets/img/bg1.jpg" 
                [ngClass]="{displayed: cur_image==0}"/>
