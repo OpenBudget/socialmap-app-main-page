@@ -41,7 +41,7 @@ app.get(basePath + '*', function(req, res) {
     if (response.statusCode === 200 && body !== null && body.value) {
 
       var theme = 'socialmap';
-      var themeFileName = 'theme.'+theme+'.json';
+      var themeFileName = 'theme.'+theme+'.he.json';
       var themeScript = '';
       var themeJson = null;
       // try the themes root directory first - this allows mount multiple themes in a single shared docker volume
