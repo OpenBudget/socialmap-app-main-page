@@ -1,43 +1,27 @@
-## Social Map Main Page
+# SocialmapAppMainPage
 
-To read on how it's used, please take a look [here](https://github.com/OpenBudget/BudgetKey/blob/master/documentation/FrontEndDevelopment.md).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
 
-### quickstart
+## Development server
 
-Install dependencies
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-```
-npm install
-```
+## Code scaffolding
 
-If you get errors, try to run `npm install` again
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-Run the dev server
+## Build
 
-```
-npm run dist-serve
-```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-### deployment
+## Running unit tests
 
-To setup the continuous deployment via travis you should set some travis env variables, verify you have the required vars:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-```
-$ travis env list
-# environment variables for OriHoch/socialmap-app-main-page
-DOCKER_USERNAME=[secure]
-DOCKER_PASSWORD=[secure]
-GITHUB_TOKEN=[secure]
-```
+## Running end-to-end tests
 
-* Docker username / password - used to push to docker hub which is where the container orchestrator gets the images from.
-* GitHub token - used to push the new docker image tag to the ops repository configuration values.
-  * Make sure the token has write permissions to the relevant ops repo
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-further configuration of the continuous deployment process can be done in .travis.yml:
+## Further help
 
-* `env.matrix` - configures the target deployment environment for each branch.
-* `env.global` - 
-  * `K8S_OPS_REPO_BRANCH` / `K8S_OPS_REPO_SLUG` - the ops repo configuration changes are pushed to
-  * `DEPLOY_VALUES_CHART_NAME` / `DEPLOY_VALUES_IMAGE_PROP` - the chart name and image property to update for this deployment
-  * `DEPLOY_COMMIT_MESSAGE` - the commit message which will be logged to ops repo
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

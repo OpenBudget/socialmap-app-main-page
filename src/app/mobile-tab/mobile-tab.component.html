@@ -1,0 +1,7 @@
+<ng-content select='.anchor'></ng-content>
+<div class='more-info' (click)='toggle()'>
+  <a>מידע נוסף</a>
+  <i class='glyphicon glyphicon-chevron-left' *ngIf='!visible'></i>
+  <i class='glyphicon glyphicon-chevron-down' *ngIf='visible'></i>
+</div>
+<ng-content *ngIf='visible'></ng-content>

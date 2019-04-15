@@ -8,7 +8,7 @@ const request = require("request");
 const urlencode = require('urlencode');
 
 const basePath = process.env.BASE_PATH || '/';
-const rootPath = path.resolve(__dirname, './dist');
+const rootPath = path.resolve(__dirname, './dist/socialmap-app-main-page/');
 const disableCache = process.env.DISABLE_CACHE || false;
 
 const app = express();
@@ -38,7 +38,7 @@ app.get(basePath + '*', function(req, res) {
     url: 'https://next.obudget.org/get/' + urlencode(doc_id),
     json: true
   }, function (error, response, body) {
-    if (response.statusCode === 200 && body !== null && body.value) {
+    if (response && response.statusCode === 200 && body !== null && body.value) {
 
       var theme = 'socialmap';
       var themeFileName = 'theme.'+theme+'.he.json';
@@ -65,7 +65,8 @@ app.get(basePath + '*', function(req, res) {
         prefetchedData: JSON.stringify(body),
       });
     } else {
-      res.sendStatus(response.statusCode);
+      console.log(error);
+      res.sendStatus(response ? response.statusCode : 500);
     }
   });
 });
