@@ -24,9 +24,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              "src/assets",
               { "glob": "**/*", "input": "node_modules/budgetkey-ng2-components/assets", "output": "assets" },
-              "src/favicon.ico",
-              "src/assets"
+              "src/favicon.ico"
             ],
             "styles": [
               "node_modules/budgetkey-ng2-components/budgetkey-ng2-components.less",

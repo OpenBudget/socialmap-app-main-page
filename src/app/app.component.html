@@ -25,9 +25,10 @@
   </div>
   <div class="main-text">
     <h1>אז מה קורה במגזר השלישי?!</h1>
-    <budgetkey-search-bar [searchTerm]="''"
+    <budgetkey-search-bar [searchTerm]="initialQuery"
                           (navigate)="onNavigate($event)"
                           [allowSubscribe]="true"
+                          (search)='updateTerm($event)'
     ></budgetkey-search-bar>
     <div class="search-guide" #searchGuide>
       <img src="assets/img/down-left-arrow.svg"/>

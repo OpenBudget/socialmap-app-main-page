@@ -32,12 +32,14 @@ export class AppComponent implements OnInit, AfterViewInit {
       id: 'reports',
     }
   ];
+  initialQuery: string;
 
   constructor() {
   }
 
 
   ngOnInit() {
+    this.initialQuery = (new URLSearchParams(window.location.search.slice(1))).get('q') || '';
     window.setInterval(() => {
       this.cur_image += 1;
       this.cur_image %= 3;
@@ -46,6 +48,16 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.img_src_1 = 'assets/img/bg2.jpg';
       this.img_src_2 = 'assets/img/bg3.jpg';
     }, 3000);
+  }
+
+  updateTerm(term) {
+    const params = new URLSearchParams(window.location.search.slice(1));
+    params.set('q', term);
+    history.replaceState(
+      null,
+      document.title,
+      document.location.href.split('?')[0] + '?' + params.toString()
+    );
   }
 
   ngAfterViewInit() {
