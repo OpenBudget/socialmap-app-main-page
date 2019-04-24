@@ -1,0 +1,35 @@
+.ad {
+    position: fixed;
+    left: 50vw;
+    top: -40px;
+    transition-property: top;
+    transition-delay: 0s;
+    transition-duration: 1s;
+    z-index: 100;
+
+    .ad-inner {
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: rgb(113, 222, 207);  
+        padding: 5px 10px;
+        margin-left: -50%;
+        margin-right: 50%;
+        
+        a {
+            margin-left: -50%;
+            span {
+                display: inline-block;
+                white-space: nowrap;
+                font-size: 16px;
+                color: black;  
+            }      
+        }
+            
+    }
+
+    &.active {
+        top: 0px;
+        transition-delay: 3s;
+    }
+}
+  

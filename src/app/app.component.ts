@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -33,12 +33,19 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   ];
   initialQuery: string;
+  adVisible: boolean;
 
   constructor() {
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    console.log('SYSY', window.scrollY);
+    this.adVisible = window.scrollY < 30;
+  }
 
   ngOnInit() {
+    this.adVisible = true;
     this.initialQuery = (new URLSearchParams(window.location.search.slice(1))).get('q') || '';
     window.setInterval(() => {
       this.cur_image += 1;
