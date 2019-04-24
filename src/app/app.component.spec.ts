@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AdamkeyModule } from 'adamkey';
 import { BudgetKeyCommonModule, THEME_TOKEN } from 'budgetkey-ng2-components';
 import { APP_BASE_HREF } from '@angular/common';
@@ -14,12 +15,14 @@ import { CoinsChartComponent } from './coins-chart/coins-chart.component';
 import { HadashChartSimpleComponent } from './hadash-chart-simple/hadash-chart-simple.component';
 import { MobileTabComponent } from './mobile-tab/mobile-tab.component';
 import { CoinsChartSimpleComponent } from './coins-chart-simple/coins-chart-simple.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
+        RouterModule.forRoot([{ path: '', component: MainPageComponent }]),
         AdamkeyModule,
         BudgetKeyCommonModule,
       ],
@@ -33,6 +36,7 @@ describe('AppComponent', () => {
         HadashChartSimpleComponent,
         MobileTabComponent,
         CoinsChartSimpleComponent,
+        MainPageComponent,
         AppComponent
       ],
       providers: [
