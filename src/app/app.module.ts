@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -15,6 +16,8 @@ import { HadashChartSimpleComponent } from './hadash-chart-simple/hadash-chart-s
 import { MobileTabComponent } from './mobile-tab/mobile-tab.component';
 import { CoinsChartSimpleComponent } from './coins-chart-simple/coins-chart-simple.component';
 import { getAuthServiceConfigProvider } from 'budgetkey-ng2-auth';
+import { HakolKoreComponent } from './hakol-kore/hakol-kore.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 declare let BUDGETKEY_NG2_COMPONENTS_THEME: any;
 declare const BUDGETKEY_THEME_ID: any;
@@ -34,6 +37,12 @@ if (typeof(BUDGETKEY_NG2_COMPONENTS_THEME) !== 'undefined') {
                   useValue: BUDGETKEY_NG2_COMPONENTS_THEME});
 }
 
+const appRoutes: Routes = [
+  { path: 'hakol-kore', component: HakolKoreComponent },
+  { path: '', component: MainPageComponent },
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,10 +54,15 @@ if (typeof(BUDGETKEY_NG2_COMPONENTS_THEME) !== 'undefined') {
     CoinsChartComponent,
     HadashChartSimpleComponent,
     MobileTabComponent,
-    CoinsChartSimpleComponent
+    CoinsChartSimpleComponent,
+    HakolKoreComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+    ),
     AdamkeyModule,
     BudgetKeyCommonModule,
   ],

@@ -1,0 +1,119 @@
+<budgetkey-container [showHeader]="true" [showSearchBar]="false" [helpWidget]="false">
+  <div class='marquee' [class.active]='adVisible'>
+    <div class='marquee-inner'>
+        <a href='https://next.obudget.org/s/?q=&dd=opportunities&range=all&lang=he&theme=socialmap&kind=all&focused=no'>
+            <span>חדש! עמותה או חל"צ? חפשו ומצאו במרוכז מכרזים, מבחני תמיכה וקולות קוראים ממשלתיים הרלוונטיים לכם (בהרצה)</span>
+        </a>
+    </div>
+  </div>
+  <div class='background-graphic'>
+    <img src="assets/img/bg1.jpg" 
+          [ngClass]="{displayed: cur_image==0}"/>
+    <img [src]="img_src_1" 
+          [ngClass]="{displayed: cur_image==1}"/>
+    <img [src]="img_src_2" 
+          [ngClass]="{displayed: cur_image==2}"/>>
+    <p class="image-credit" 
+          [ngClass]="{displayed: cur_image==0}">
+          בקורס מכונאות אופניים.<br/>
+          המכללה - בית ספר חברתי למען נשים חוזרות למעגל העבודה<br/>
+          צילום: איריס שטרן לוי
+    </p>
+    <p class="image-credit" 
+          [ngClass]="{displayed: cur_image==1}">
+          מחאת האימוץ, 2017.<br/>
+          צילום: האגודה למען הלהט"ב
+    </p>
+    <p class="image-credit" 
+          [ngClass]="{displayed: cur_image==2}">
+          מצעד האקלים 2018.<br/>
+          צילום: עמותת חיים וסביבה
+    </p>
+  </div>
+  <div class="main-text">
+    <h1>אז מה קורה במגזר השלישי?!</h1>
+    <budgetkey-search-bar [searchTerm]="initialQuery"
+                          (navigate)="onNavigate($event)"
+                          [allowSubscribe]="true"
+                          (search)='updateTerm($event)'
+    ></budgetkey-search-bar>
+    <div class="search-guide" #searchGuide>
+      <img src="assets/img/down-left-arrow.svg"/>
+      <div class="search-examples">
+        <div>חיפושים לדוגמה</div>
+        <div class="tags">
+          <span class="tag">ארגונים פעילים בתחום התרבות והאמנות</span>
+          <span class="tag">ארגונים הפעילים במחוז הדרום</span>
+          <span class="tag">״המרכז לעיוור בישראל״</span>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle">
+      <strong>״המפה החברתית״</strong>
+      הינו מיזם חדשני ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+      על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם          
+    </div>
+  </div>
+  <div class="tab-buttons"
+      [style.margin-top]="spacer + 'px'">
+    <div class="subtitle"  #tabButtons>
+      <strong>״המפה החברתית״</strong>
+      הינו מיזם חדשני ליצירת בסיס נתונים ראשון מסוגו, המאפשר לציבור הרחב לקבל תמונה רחבה ומקיפה
+      על הארגונים והעמותות הפועלים בישראל ועל מידת המעורבות והתמיכה הממשלתית בפעילותם          
+    </div>
+    <div class="tab-button" (click)="active='flag'"
+          [ngClass]="{active: active=='flag'}"
+    >
+      <app-flag-anchor [data]='data'></app-flag-anchor>
+    </div>
+    <div class="tab-button" (click)="active='hadash'"
+          [ngClass]="{active: active=='hadash'}"
+    >
+      <app-hadash-anchor [data]='data'></app-hadash-anchor>
+    </div>
+    <div class="tab-button" (click)="active='coins'"
+          [ngClass]="{active: active=='coins'}"
+    >
+      <app-coins-anchor [data]='data'></app-coins-anchor>
+    </div>        
+  </div>
+  <div [style.height]="(spacer + 20) + 'px'"></div>
+  <div class="tab-contents-container"
+        *ngIf="active=='hadash'">
+        <app-hadash-chart [data]='data'></app-hadash-chart>
+  </div>
+  <div class="tab-contents-container"
+        *ngIf="active=='flag'">
+      <app-flag-chart [data]='data'></app-flag-chart>
+  </div>
+  <div class="tab-contents-container"
+        *ngIf="active=='coins'">
+        <app-coins-chart [data]='data'></app-coins-chart>
+  </div>
+  <div class='mobile-tabs'>
+    <app-mobile-tab>
+      <app-hadash-anchor class='anchor' [data]='data'></app-hadash-anchor>
+      <app-hadash-chart-simple [data]='data'></app-hadash-chart-simple>
+    </app-mobile-tab>
+    <app-mobile-tab>
+      <app-coins-anchor class='anchor' [data]='data'></app-coins-anchor>
+      <app-coins-chart-simple [data]='data'></app-coins-chart-simple>
+    </app-mobile-tab>
+    <app-mobile-tab>
+      <app-flag-anchor class='anchor' [data]='data'></app-flag-anchor>
+      <app-flag-chart [data]='data'></app-flag-chart>
+    </app-mobile-tab>
+  </div>
+  <div class="disclaimer">
+    הנתונים מבוססים על שנת הדיווח האחרונה של
+    <span class='bk-tooltip-anchor'
+    >הארגונים הפעילים
+      <span class='bk-tooltip'>
+      ארגון מוגדר כפעיל אם הוצג עבורו דיווח שנתי באתר ״גיידסטאר״ באחת משלוש השנים האחרונות
+      </span>
+    </span>    
+    ולכן מוצגים לצורך הבנת סדרי הגודל
+  </div>
+
+
+</budgetkey-container>
