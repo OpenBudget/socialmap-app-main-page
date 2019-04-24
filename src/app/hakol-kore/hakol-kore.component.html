@@ -1,3 +1,34 @@
-<p>
-  hakol-kore works!
-</p>
+<budgetkey-container [showHeader]="true" [showSearchBar]="false" [helpWidget]="false">
+  <div class='background-graphic'>
+  </div>
+  <div class="main-text">
+    <h1><strong>הקול קורה: </strong>כל המידע על קולות קוראים לתמיכות ומכרזים ממשלתיים</h1>
+    <h2>
+      עמותה או חל"צ? חפשו ומצאו במרוכז את ההזדמנויות הממשלתיות הרלוונטיות לכם -<br/>
+      קולות קוראים לתמיכות, מבחני תמיכות ומכרזים פתוחים וקבלו עדכונים בזמן אמת על הזדמנויות חדשות.         
+    </h2>
+    <budgetkey-search-bar (navigate)="onNavigate($event)"
+                          [searchTypes]='searchBarConfig'
+                          [allowSubscribe]="true"
+    ></budgetkey-search-bar>
+    <h2>
+      <a href='/'>למידע נוסף על ארגוני החברה האזרחית ב"מפה החברתית"</a>
+    </h2>
+    <div class='logos'>
+      <a href='http://migzar3.org.il/' target='_blank' title='מנהיגות אזרחית'>
+        <img src='assets/img/manhigut-ezrachit.png'>
+      </a>
+      <a href='https://hasadna.org.il' target='_blank' title='הסדנא לידע ציבורי'>
+        <img class='hasadna' src='assets/img/hasadna-logo.svg'>
+        <span>הסדנא לידע ציבורי</span>
+      </a>
+      <div>
+        <span>
+        בתמיכת
+        <a href='http://www.theinstitute.org.il/index.php?dir=site&page=programs&op=view&cs=131&langpage=heb' target='_blank'>"מיזם ממשלה-חברה אזרחית"</a>
+        – שותפות של ממשלת ישראל והמכון למנהיגות וממשל בג'וינט ישראל
+        </span>
+      </div>
+    </div>
+  </div>
+</budgetkey-container>

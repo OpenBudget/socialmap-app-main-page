@@ -1,0 +1,69 @@
+budgetkey-container {
+    .background-graphic {
+        background-image: linear-gradient(57deg, #8b47a5, #5a32d1);
+    }
+    .main-text {
+        top: 0;
+        height: 100vh;
+        h1 {
+            font-weight: normal;
+            max-width: 750px;
+        }
+        h2 {
+            max-width: 900px;
+            font-size: 20px;
+            font-weight: normal;
+            color: #ffffff;
+            text-align: center;
+
+            a {
+                color: #ffffff;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .logos {
+        display: flex;
+        flex-flow: row;
+        align-items: stretch;
+        max-width: 900px;
+        height: 200px;
+        margin: 50px 0;
+
+        & > a {
+            &, &:hover, &:visited {
+                text-decoration: none;
+                color: inherit    
+            }
+        }
+
+        & > * {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 18px;
+            flex: 0 0 30%;
+            box-shadow: 5px 8px 18px 0 rgba(0,0,0,0.07);
+
+            img {
+                width: 100%;
+                object-fit: fill;
+                max-height: 70px;
+                max-width: 150px;
+
+                &.hasadna {
+                    width: 80px;
+                }
+            }
+
+            
+        }
+    }
+}
