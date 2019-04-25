@@ -1,5 +1,14 @@
 budgetkey-container {
 
+    ::ng-deep budgetkey-search-bar {
+        .type-text-in-search-bar-right, .drop-down-caret {
+            display: none;
+        }
+        .dropdown-content.show {
+            display: none !important;
+        }
+    }
+
     ::ng-deep budgetkey-header {
         z-index: 1;
     }
