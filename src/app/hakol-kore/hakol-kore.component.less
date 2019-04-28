@@ -36,20 +36,29 @@ budgetkey-container {
             }
         }
     }
+    .supporter {
+      background-color: white;
+      border-radius: 20px;
+      text-align: center;
+      margin: 0px 20px 40px 20px;
+      position: relative;
+      padding: 4px;
+    }
 
     .logos {
         display: flex;
         flex-flow: row;
         align-items: stretch;
-        justify-content: space-between;
-        max-width: 900px;
+        justify-content: space-around;
+        max-width: 90z0px;
         height: 200px;
-        margin: 50px 0;
+        margin: 50px 0 0 0;
+        flex-shrink: 0;
 
         & > a {
             &, &:hover, &:visited {
                 text-decoration: none;
-                color: inherit    
+                color: inherit
             }
         }
 
@@ -61,11 +70,11 @@ budgetkey-container {
             display: flex;
             flex-flow: row;
             align-items: center;
-            justify-content: center;
             text-align: center;
             font-size: 18px;
-            flex: 0 0 28%;
+            flex: 0 0 40%;
             box-shadow: 5px 8px 18px 0 rgba(0,0,0,0.07);
+
 
             img {
                 width: 100%;
@@ -78,7 +87,7 @@ budgetkey-container {
                 }
             }
 
-            
+
         }
     }
 }
@@ -96,7 +105,7 @@ budgetkey-container {
             position: relative;
             height: fit-content;
             margin-bottom: -72px;
-        }    
+        }
         .logos {
             flex-flow: column;
             height: fit-content;
