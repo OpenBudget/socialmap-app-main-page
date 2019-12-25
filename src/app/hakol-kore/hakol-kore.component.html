@@ -5,7 +5,8 @@
     <h1><strong>הקול קורה: </strong>כל המידע על קולות קוראים לתמיכות ומכרזים ממשלתיים</h1>
     <h2>
       עמותה או חל"צ? חפשו ומצאו במרוכז את ההזדמנויות הממשלתיות הרלוונטיות לכם -<br/>
-      קולות קוראים לתמיכות, מבחני תמיכות ומכרזים פתוחים וקבלו עדכונים על הזדמנויות חדשות.
+      קולות קוראים לתמיכות, מבחני תמיכות ומכרזים פתוחים וקבלו עדכונים על הזדמנויות חדשות.<br/>
+      (בהרצה)
     </h2>
     <budgetkey-search-bar (navigate)="onNavigate($event)"
                           [searchTypes]='searchBarConfig'
@@ -19,16 +20,26 @@
         <img src='assets/img/manhigut-ezrachit.png'>
       </a>
       <a href='https://www.hasadna.org.il' target='_blank' title='הסדנא לידע ציבורי'>
-        <img class='hasadna' src='assets/img/hasadna-logo.svg'>
+        <img class='hasadna' src='assets/img/hasadna-logo-he-ar-en.png'>
         <span>הסדנא לידע ציבורי</span>
       </a>
-      <a href='http://www.theinstitute.org.il/index.php?dir=site&page=programs&op=view&cs=131&langpage=heb' target='_blank' title='מיזם ממשלה-חברה אזרחית'>
-        <img src='assets/img/logo-joint.png'>
-      </a>
-      <a href='https://www.migdal.co.il/' target='_blank' title='מגדל'>
-        <img src='assets/img/logo-migdal.svg'>
-        <span>בשיתוף פעולה בתכנית חברתית עם מגדל חברה לביטוח</span>
-      </a>
+    </div>
+    <div class='supporter'>
+      <div>
+        פיתוח הכלי נעשה בתמיכת
+        <a href='http://www.theinstitute.org.il/index.php?dir=site&page=programs&op=view&cs=131&langpage=heb' target='_blank' title='מיזם ממשלה-חברה אזרחית'>
+        "מיזם ממשלה-חברה אזרחית"
+        </a>
+        - שותפות של ממשלת ישראל והמכון למנהיגות וממשל בג'וינט ישראל, ובשיתוף פעולה בתוכנית חברתית עם מגדל חברה לביטוח.
+      </div>
+      <div class='logos'>
+        <a href='https://www.migdal.co.il/' target='_blank' title='מגדל'>
+          <img src='assets/img/logo-migdal.svg'>
+        </a>
+        <a href='http://www.theinstitute.org.il/index.php?dir=site&page=programs&op=view&cs=131&langpage=heb' target='_blank' title='מיזם ממשלה-חברה אזרחית'>
+          <img src='assets/img/logo-joint.png'>
+        </a>
+      </div>
     </div>
   </div>
 </budgetkey-container>

@@ -38,70 +38,87 @@ budgetkey-container {
                 text-decoration: underline;
             }
         }
-    }
 
-    .supporter {
-        background-color: white;
-        border-radius: 20px;
-        text-align: center;
-        margin: 40px 20px 40px 20px;
-        position: relative;
-        padding: 4px 15px;
-        max-width: 700px;
-    }
-
-    .logos {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: stretch;
-        justify-content: space-around;
-        max-width: 900px;
-        margin: 50px 0 0 0;
-        flex-shrink: 0;
-
-        & > a {
-            &, &:hover, &:visited {
-                text-decoration: none;
-                color: inherit;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-
-        & > * {
-            padding: 20px;
-            margin: 20px;
+        .supporter {
             background-color: white;
-            border-radius: 10px;
-            display: flex;
-            flex-flow: row;
-            align-items: center;
+            border-radius: 20px;
             text-align: center;
-            font-size: 18px;
-            flex: 0 0 40%;
-            box-shadow: 5px 8px 18px 0 rgba(0,0,0,0.07);
-
-
-            img {
-                max-width: 100%;
-                object-fit: fill;
-                object-fit: contain;
-                height: 120px;
-                width: 240px;
-
-                &.hasadna {
-                    width: 80px;
+            margin: 40px 20px 40px 20px;
+            position: relative;
+            padding: 10px 15px;
+            max-width: 700px;
+            div.logos {
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                justify-content: center;
+                a {
+                    display: block;
+                    flex: 0 1 auto;
+                    max-width: 50%;
+                    margin: 0 10px;
+                    img {
+                        max-width: 100%;
+                        max-height: 80px;
+                    }
                 }
             }
-
-            span {
-                margin: 10px;
+        }
+    
+        & > .logos {
+            display: flex;
+            flex-flow: row;
+            align-items: stretch;
+            justify-content: space-around;
+            max-width: 900px;
+            margin: 50px 0 0 0;
+            flex-shrink: 0;
+    
+            & > a {
+                &, &:hover, &:visited {
+                    text-decoration: none;
+                    color: inherit;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
+    
+            & > * {
+                padding: 20px;
+                margin: 20px;
+                background-color: white;
+                border-radius: 10px;
+                display: flex;
+                flex-flow: row;
+                align-items: center;
+                text-align: center;
+                font-size: 18px;
+                flex: 0 0 40%;
+                box-shadow: 5px 8px 18px 0 rgba(0,0,0,0.07);
+    
+                img {
+                    max-width: 100%;
+                    object-fit: fill;
+                    object-fit: contain;
+                    height: 120px;
+                    width: 240px;
 
-
+                    &.hasadna {
+                        width: 120px;
+                    }
+                }
+    
+                span {
+                    margin: 10px;
+                }
+    
+    
+            }
         }
     }
+
+ 
 }
 
 @media only screen and (max-width: 600px) {
@@ -117,13 +134,21 @@ budgetkey-container {
             position: relative;
             height: fit-content;
             margin-bottom: -72px;
-        }
-        .logos {
-            flex-flow: column;
-            height: fit-content;
-            justify-content: flex-start;
-            & > * {
-                flex: auto;
+
+            & > .logos {
+                // flex-flow: column;
+                // height: fit-content;
+                // justify-content: flex-start;
+                & > * {
+                    // flex: auto;
+                    flex-flow: column;
+                    padding: 10px;
+                    margin: 10px;
+                }
+
+                span {
+                    font-size: 12px;
+                }
             }
         }
     }
